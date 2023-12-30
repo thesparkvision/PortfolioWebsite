@@ -20,9 +20,17 @@ header {
     color: black;
 }
 
-nav {
+nav ul {
     display: flex;
     column-gap: 1em;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
 }
 
 /* ### Main Content Styling ### */
