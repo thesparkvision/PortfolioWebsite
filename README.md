@@ -5,7 +5,7 @@ This repository will contain code I wrote for developing my portfolio website. A
 http://www.amanpandya.life/
 
 ## Latest Build Status
-[![pages-build-deployment](https://github.com/thesparkvision/PortfolioWebsite/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/thesparkvision/PortfolioWebsite/actions/workflows/pages/pages-build-deployment)
+[![Deploy static content to Pages](https://github.com/thesparkvision/PortfolioWebsite/actions/workflows/static.yml/badge.svg)](https://github.com/thesparkvision/PortfolioWebsite/actions/workflows/static.yml)
 
 ## License
 MIT License
