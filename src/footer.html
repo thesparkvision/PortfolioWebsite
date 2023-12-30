@@ -1,0 +1,9 @@
+<!-- footer.html -->
+    <!-- Fetch and insert footer -->
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(html => document.querySelector('body').insertAdjacentHTML('beforeend', html));
+    </script>
+</body>
+</html>
