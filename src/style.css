@@ -1,6 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* ### Header Styling ### */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(137, 99, 137);
+    padding: 1em;
+}
+
+#user-name {
+    text-decoration: none;
+}
+
+#user-name:link, #user-name:visited {
+    color: black;
+}
+
+nav {
+    display: flex;
+    column-gap: 1em;
+}
+
+/* ### Main Content Styling ### */
+main {
+    padding: 5px;
+}
+
+/* ### Footer Styling ### */
 footer {
     width: 100%;
     position: fixed;
     bottom: 0;
     text-align: center;
+    background-color: rgb(203, 203, 203);
+}
+
+#footer-copyright {
+    font-size: 1em;
+    margin: 0px;
+    padding: 0.2em 0.5em;
 }
