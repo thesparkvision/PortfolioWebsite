@@ -18,6 +18,27 @@
     <meta referrer="no-referrer" />
 
     <script>
+        const GET_USER_BLOGS = `
+            query GetUserArticles($pageSize: Int!, $pageNo: Int!, $userName: String!) {
+                user(username: $userName) {
+                    posts(pageSize: $pageSize, page: $pageNo) {
+                        nodes {
+                            title
+                            url
+                            brief
+                            slug
+                            readTimeInMinutes
+                            publishedAt
+                            coverImage {
+                                url
+                            }
+                        }
+                        totalDocuments
+                    }
+                }
+            }
+        `;
+
         function formatDate(dateString) {
             const date = new Date(dateString);
             const options = { day: 'numeric', month: 'short', year: 'numeric' };
@@ -39,33 +60,23 @@
             return data.json();
         }
 
-        async function fetchBlogs() {
-            const GET_USER_BLOGS = `
-                query GetUserArticles($page: Int!) {
-                    user(username: "amanpandya") {
-                        posts(pageSize: $page, page: 1) {
-                            nodes {
-                                title
-                                url
-                                brief
-                                slug
-                                readTimeInMinutes
-                                publishedAt
-                                coverImage {
-                                url
-                                }
-                            }
-                            totalDocuments
-                        }
-                    }
-                }
-            `;
+        async function fetchBlogs() {  
+            let pageNo = 1
+            let totalBlogs = 0
 
-            let response = await gql(GET_USER_BLOGS, { page: 3 });
-            let blogs = response?.data?.user?.posts?.nodes
-            if(blogs?.length > 0){
+            while(true){
+                let response = await gql(GET_USER_BLOGS, { 
+                    pageNo: pageNo,
+                    pageSize: 10,
+                    userName: "amanpandya"
+                });
+
+                let blogNodesFragment = response?.data?.user?.posts?.nodes
+                let totalDocuments = response?.data?.user?.posts?.totalDocuments || 0
+
                 let blogsContainer = document.getElementById("blogs-container")
-                blogs.forEach(blog => {
+                
+                blogNodesFragment.forEach(blog => {
                     blogsContainer.innerHTML += `
                     <div class="blog-card">
                         <a class="blog-link" href="${blog?.url}" target="_blank">
@@ -75,7 +86,16 @@
                         </a>
                     </div>`;
                 })
-            }
+
+                if (blogNodesFragment.length > 0){
+                    totalBlogs += blogNodesFragment.length
+                    pageNo += 1
+                }
+                
+                if(totalBlogs >= totalDocuments){
+                    break
+                }
+            } 
         }
 
         fetchBlogs()
