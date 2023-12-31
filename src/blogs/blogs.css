@@ -2,11 +2,6 @@
     color: brown;
 }
 
-body {
-    background-color:cornflowerblue;
-    color: whitesmoke;
-}
-
 #blogs-container {
     display: flex;
     flex-direction: row;
