@@ -6,16 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title style="font-weight: bold;">Aman Pandya</title>
-    <link rel="icon" href="../assets/sailboat.svg" type="image/svg+xml"/>
+    <link rel="icon" href="../assets/sailboat.svg" type="image/svg+xml" />
 
-    <link rel="stylesheet" href="../css/styles.css" type="text/css"/>
-    <link rel="stylesheet" href="blogs.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/styles.css" type="text/css" />
+    <link rel="stylesheet" href="blogs.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat">
 
     <meta authhor="Aman Pandya" />
     <meta description="I am a software engineer by profession" />
     <meta keywords="Aman,Pandya,Portfolio,Website" />
     <meta referrer="no-referrer" />
+
+    <script>
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { day: 'numeric', month: 'short', year: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        async function gql(query, variables = {}) {
+            const data = await fetch('https://gql.hashnode.com/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    query,
+                    variables
+                })
+            });
+
+            return data.json();
+        }
+
+        async function fetchBlogs() {
+            const GET_USER_BLOGS = `
+                query GetUserArticles($page: Int!) {
+                    user(username: "amanpandya") {
+                        posts(pageSize: $page, page: 1) {
+                            nodes {
+                                title
+                                url
+                                brief
+                                slug
+                                readTimeInMinutes
+                                publishedAt
+                                coverImage {
+                                url
+                                }
+                            }
+                            totalDocuments
+                        }
+                    }
+                }
+            `;
+
+            let response = await gql(GET_USER_BLOGS, { page: 3 });
+            let blogs = response?.data?.user?.posts?.nodes
+            if(blogs?.length > 0){
+                let blogsContainer = document.getElementById("blogs-container")
+                blogs.forEach(blog => {
+                    blogsContainer.innerHTML += `
+                    <div class="blog-card">
+                        <a class="blog-link" href="${blog?.url}" target="_blank">
+                            <div class="blog-title">${blog?.title}</div>
+                            <div class="blog-meta">Read Time: ${blog?.readTimeInMinutes} min</div>
+                            <div class="blog-meta">Publish Date: ${formatDate(blog.publishedAt)}</div>
+                        </a>
+                    </div>`;
+                })
+            }
+        }
+
+        fetchBlogs()
+    </script>
 </head>
 
 <body>
@@ -33,7 +97,7 @@
                     <a href="/work" class="nav-link">Work</a>
                 </li>
                 <li>
-                    <a href="/blogs" id="current-page-link"  class="nav-link">Blogs</a>
+                    <a href="/blogs" id="current-page-link" class="nav-link">Blogs</a>
                 </li>
                 <li>
                     <a href="/about" class="nav-link">About</a>
@@ -43,8 +107,7 @@
     </header>
 
     <main>
-        <h1>Blogs Page</h1>
-        <p>Blogs Page Content.</p>
+        <article id="blogs-container"></article>
     </main>
 
     <footer>
