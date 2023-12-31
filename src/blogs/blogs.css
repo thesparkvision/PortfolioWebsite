@@ -1,3 +1,43 @@
 #current-page-link {
     color: brown;
 }
+
+body {
+    background-color:cornflowerblue;
+    color: whitesmoke;
+}
+
+#blogs-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    row-gap: 10px;
+    margin-top: 20px;
+}
+
+.blog-card {
+    width: calc(33.33% - 20px);
+    border: 1px solid purple;
+    margin: 10px;
+    border-radius: 8px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    background-color: antiquewhite;
+}
+
+.blog-link {
+    text-decoration: none;
+}
+
+.blog-title {
+    color: black;
+    font-size: large;
+    font-weight: bold;
+}
+
+.blog-meta {
+    color: black;
+    font-size: smaller;
+}
