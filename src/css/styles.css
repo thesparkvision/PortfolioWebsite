@@ -5,6 +5,9 @@
 
 body {
     font-family: 'Montserrat';
+    background: #F9F8F9;
+    color: black;
+    padding: 0.5em 2em;
 }
 
 /* ### Header Styling ### */
@@ -42,15 +45,6 @@ nav ul li {
     color: cream;
 }
 
-/* ### Main Content Styling ### */
-body {
-    background: #F9F8F9;
-    color: black;
-}
-
-main {
-    padding: 10px;
-}
 
 /* ### Footer Styling ### */
 footer {
@@ -58,7 +52,7 @@ footer {
     position: fixed;
     bottom: 0;
     text-align: center;
-    background-color: rgb(203, 203, 203);
+    background-color: #F9F8F9;
 }
 
 #footer-copyright {

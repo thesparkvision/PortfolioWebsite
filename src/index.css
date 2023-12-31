@@ -1,3 +1,47 @@
 #current-page-link {
     color: brown;
 }
+
+main {
+    padding: 1em;
+}
+
+#main-content {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2em;
+}
+
+#main-content section {
+    flex: 1;
+    text-align: center;
+}
+
+#self-img-section img {
+    width: 18em;
+    height: 16em;
+    
+}
+
+#short-intro-section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    justify-content: space-between;
+}
+
+#key-skills {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5em;
+    justify-content: center;
+}
+
+#key-skills li {
+    list-style: none;
+    background-color: blanchedalmond;
+    border: 1px solid blanchedalmond;
+    border-radius: 8px;
+    padding: 0.3em;
+    font-weight: medium;
+}
