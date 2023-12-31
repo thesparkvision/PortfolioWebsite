@@ -61,9 +61,9 @@
         }
 
         async function fetchBlogs() {  
-            let blogNodes = []
             let pageNo = 1
-            
+            let totalBlogs = 0
+
             while(true){
                 let response = await gql(GET_USER_BLOGS, { 
                     pageNo: pageNo,
@@ -73,19 +73,10 @@
 
                 let blogNodesFragment = response?.data?.user?.posts?.nodes
                 let totalDocuments = response?.data?.user?.posts?.totalDocuments || 0
-                if (blogNodesFragment.length > 0){
-                    blogNodes = blogNodes.concat(blogNodesFragment)
-                    pageNo += 1
-                }
-                
-                if(blogNodes.length >= totalDocuments){
-                    break
-                }
-            } 
-            
-            if(blogNodes?.length > 0){
+
                 let blogsContainer = document.getElementById("blogs-container")
-                blogNodes.forEach(blog => {
+                
+                blogNodesFragment.forEach(blog => {
                     blogsContainer.innerHTML += `
                     <div class="blog-card">
                         <a class="blog-link" href="${blog?.url}" target="_blank">
@@ -95,7 +86,16 @@
                         </a>
                     </div>`;
                 })
-            }
+
+                if (blogNodesFragment.length > 0){
+                    totalBlogs += blogNodesFragment.length
+                    pageNo += 1
+                }
+                
+                if(totalBlogs >= totalDocuments){
+                    break
+                }
+            } 
         }
 
         fetchBlogs()
