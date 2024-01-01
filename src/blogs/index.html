@@ -79,10 +79,12 @@
                 blogNodesFragment.forEach(blog => {
                     blogsContainer.innerHTML += `
                     <div class="blog-card">
-                        <a class="blog-link" href="${blog?.url}" target="_blank">
+                        <a class="blog-link-wrapper" href="${blog?.url}" target="_blank">
                             <div class="blog-title">${blog?.title}</div>
-                            <div class="blog-meta">Read Time: ${blog?.readTimeInMinutes} min</div>
-                            <div class="blog-meta">Publish Date: ${formatDate(blog.publishedAt)}</div>
+                            <div class="blog-meta">
+                                <p>Read: ${blog?.readTimeInMinutes} min</p>
+                                <p>PublishedOn: ${formatDate(blog.publishedAt)}</p>
+                            </div>
                         </a>
                     </div>`;
                 })

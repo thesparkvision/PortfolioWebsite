@@ -5,13 +5,13 @@
 main {
     display: flex;
     flex-direction: column;
-    row-gap: 2em;
+    row-gap: 2.5rem;
 }
 
 #main-content {
     display: flex;
     flex-direction: row;
-    column-gap: 2em;
+    column-gap: 2rem;
 }
 
 #main-content section {
@@ -20,21 +20,21 @@ main {
 }
 
 #self-img-section img {
-    width: 18em;
-    height: 16em;    
+    width: 18rem;
+    height: 16rem;    
 }
 
 #short-intro-section {
     display: flex;
     flex-direction: column;
-    row-gap: 1em;
+    row-gap: 1rem;
     justify-content: space-between;
 }
 
 #key-skills {
     display: flex;
     flex-direction: row;
-    column-gap: 0.5em;
+    column-gap: 0.5rem;
     justify-content: center;
 }
 
@@ -43,17 +43,17 @@ main {
     background-color: blanchedalmond;
     border: 1px solid blanchedalmond;
     border-radius: 8px;
-    padding: 0.3em;
+    padding: 0.3rem;
     font-weight: medium;
 }
 
 #action-content {
     text-align: center;
-    padding: 1em 0em;
+    padding: 1rem 0rem;
 }
 
 #view-resume-btn {
-    padding: 1em 3em;
+    padding: 1rem 3rem;
     border: 1px solid lightslategray;
     border-radius: 8px;
     font-size: large;
