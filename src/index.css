@@ -3,7 +3,9 @@
 }
 
 main {
-    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
 }
 
 #main-content {
@@ -19,8 +21,7 @@ main {
 
 #self-img-section img {
     width: 18em;
-    height: 16em;
-    
+    height: 16em;    
 }
 
 #short-intro-section {
@@ -44,4 +45,20 @@ main {
     border-radius: 8px;
     padding: 0.3em;
     font-weight: medium;
+}
+
+#action-content {
+    text-align: center;
+    padding: 1em 0em;
+}
+
+#view-resume-btn {
+    padding: 1em 3em;
+    border: 1px solid lightslategray;
+    border-radius: 8px;
+    font-size: large;
+    background-color:lightslategray;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
 }
