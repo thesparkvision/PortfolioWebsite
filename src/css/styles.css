@@ -7,7 +7,6 @@ body {
     font-family: 'Montserrat';
     background: #F9F8F9;
     color: black;
-    padding: 0.5em 2em;
 }
 
 /* ### Header Styling ### */
@@ -16,7 +15,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #F9F8F9;
-    padding: 1em;
+    padding: 1.5em 2em;
 }
 
 #user-name {
@@ -45,13 +44,34 @@ nav ul li {
     color: cream;
 }
 
+main {
+    padding: 1em 2em;
+}
+
 /* ### Footer Styling ### */
 footer {
+    padding: 0.2em 0em;
     width: 100%;
     position: fixed;
     bottom: 0;
     text-align: center;
     background-color: #F9F8F9;
+}
+
+#footer-socials {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.8em;
+    justify-content: center;
+}
+
+#footer-socials li {
+    list-style: none;
+}
+
+#footer-socials li img {
+    width: 1.3em !important;
+    height: 1.3em !important;
 }
 
 #footer-copyright {
