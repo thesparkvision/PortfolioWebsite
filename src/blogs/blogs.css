@@ -4,15 +4,14 @@
 
 #blogs-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     row-gap: 10px;
     margin-top: 20px;
 }
 
 .blog-card {
-    width: calc(33.33% - 20px);
-    border: 1px solid purple;
+    border: 1px ridge antiquewhite;
     margin: 10px;
     border-radius: 8px;
     padding: 5px;
@@ -20,10 +19,16 @@
     flex-direction: column;
     row-gap: 25px;
     background-color: antiquewhite;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.19), 0 3px 3px rgba(0,0,0,0.23); 
 }
 
-.blog-link {
+.blog-link-wrapper {
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    row-gap: 0.5em;
 }
 
 .blog-title {
@@ -32,7 +37,7 @@
     font-weight: bold;
 }
 
-.blog-meta {
+.blog-meta p {
     color: black;
     font-size: smaller;
 }
