@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat';
+  background: #F9F8F9;
+  color: black;
+  font-size: 1.2rem;
+}
+
+#current-page-link {
+  color: brown;
+}

@@ -1,0 +1,21 @@
+#current-page-link {
+  color: brown;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+  padding: 1.5em;
+}
+
+#main-content {
+  display: flex;
+  flex-direction: row;
+  column-gap: 2rem;
+}
+
+#main-content section {
+  flex: 1;
+  text-align: center;
+}

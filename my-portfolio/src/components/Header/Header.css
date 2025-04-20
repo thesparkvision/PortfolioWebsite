@@ -1,0 +1,33 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F9F8F9;
+    padding: 1.5em 2em;
+}
+
+#user-name {
+    text-decoration: none;
+}
+
+#user-name:link, #user-name:visited {
+    color: cream;
+}
+
+nav ul {
+    display: flex;
+    column-gap: 1em;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.nav-link:link, .nav-link:visited {
+    color: cream;
+}
