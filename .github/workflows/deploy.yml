@@ -1,4 +1,4 @@
-name: Deploy React + Vite to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -22,25 +22,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: 📥 Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm ci
+        working-directory: .  # ensure it runs in repo root
 
-      - name: Build the Vite app
+      - name: 🛠️ Build with Vite
         run: npm run build
+        working-directory: .  # still in root
 
-      - name: Upload GitHub Pages artifact
+      - name: 🚀 Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
-      - name: Deploy to GitHub Pages
+      - name: 🌐 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
