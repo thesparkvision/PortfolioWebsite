@@ -14,7 +14,7 @@ function App() {
     <>
       <Header />
       <main>
-        <BrowserRouter>
+        <BrowserRouter basename='/'>
           <Routes>
             <Route path="/" element={<About />} />
             <Route path="/blogs" element={<Blogs />} />
