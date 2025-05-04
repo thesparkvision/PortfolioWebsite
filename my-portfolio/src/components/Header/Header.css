@@ -4,6 +4,12 @@ header {
     align-items: center;
     background-color: #F9F8F9;
     padding: 1.5em 2em;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        row-gap: 1rem;
+        padding-bottom: unset;
+    }
 }
 
 #user-name {
@@ -30,4 +36,11 @@ nav ul li {
 
 .nav-link:link, .nav-link:visited {
     color: cream;
+}
+
+#page-links {
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        row-gap: 1rem;
+    }
 }

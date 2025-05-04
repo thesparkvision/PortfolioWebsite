@@ -52,7 +52,7 @@ const Footer = () => {
                     }
                 </ul>
             </div>
-            <div id="footer-copyright">&copy; {currentYear} Aman Pandya. All rights reserved.</div>
+            <div id="footer-copyright">&copy; {currentYear} Aman Pandya. Made with fun.</div>
         </footer>
     )
 }

@@ -8,16 +8,14 @@ const Header = () => {
             </h2>
 
             <nav>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="/" id="current-page-link" className="nav-link">Home</a>
-                        </li>
-                        <li>
-                            <a href="/blogs" className="nav-link">Blogs</a>
-                        </li>
-                    </ul>
-                </nav>
+                <ul id="page-links">
+                    <li>
+                        <a href="/" id="current-page-link" className="nav-link">Home</a>
+                    </li>
+                    <li>
+                        <a href="/blogs" className="nav-link">Blogs</a>
+                    </li>
+                </ul>
             </nav>
         </header>
     )

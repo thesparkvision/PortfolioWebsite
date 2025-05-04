@@ -4,6 +4,15 @@
     height: 16rem;    
 }
 
+#intro, #values {
+    @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+    }
+}
+
+
 #short-intro-section {
     display: flex;
     flex-direction: column;
@@ -16,6 +25,14 @@
     flex-direction: row;
     column-gap: 0.5rem;
     justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        margin-top: 1rem;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        row-gap: 0.5rem;
+    }
 }
 
 #key-skills li {
@@ -41,4 +58,18 @@
     color: white;
     cursor: pointer;
     text-decoration: none;
+}
+
+.subheading {
+    @media screen and (max-width: 768px) {
+        text-decoration: underline;
+    }
+}
+
+#greetings {
+    @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
 }
