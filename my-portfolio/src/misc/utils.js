@@ -39,13 +39,11 @@ export async function fetchBlogs() {
             const nodes = response?.data?.user?.posts?.nodes || [];
             totalDocuments = response?.data?.user?.posts?.totalDocuments ?? nodes.length;
 
-            // If no nodes returned, break to avoid infinite loop
             if (!nodes.length) break;
 
             allBlogs = allBlogs.concat(nodes);
             pageNo += 1;
 
-            // Safety limit to avoid accidental infinite loops
             if (pageNo > 50) break;
         }
 
