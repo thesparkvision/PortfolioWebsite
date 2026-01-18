@@ -50,6 +50,6 @@ export async function fetchBlogs() {
         return allBlogs;
     } catch (err) {
         console.error('fetchBlogs error:', err);
-        return []; // graceful fallback
+        return [];
     }
 }
