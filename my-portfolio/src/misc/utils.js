@@ -23,26 +23,33 @@ async function gql(query, variables = {}) {
 }
 
 export async function fetchBlogs() {
-    let pageNo = 1
-    let totalBlogs = 0
+    try {
+        const pageSize = 10;
+        let pageNo = 1;
+        let allBlogs = [];
+        let totalDocuments = Infinity;
 
-    while (true) {
-        let response = await gql(GET_USER_BLOGS, {
-            pageNo: pageNo,
-            pageSize: 10,
-            userName: hashednodeUsername
-        });
+        while (allBlogs.length < totalDocuments) {
+            const response = await gql(GET_USER_BLOGS, {
+                pageNo,
+                pageSize,
+                userName: hashednodeUsername
+            });
 
-        let blogNodesFragment = response?.data?.user?.posts?.nodes
-        let totalDocuments = response?.data?.user?.posts?.totalDocuments || 0
+            const nodes = response?.data?.user?.posts?.nodes || [];
+            totalDocuments = response?.data?.user?.posts?.totalDocuments ?? nodes.length;
 
-        if (blogNodesFragment.length > 0) {
-            totalBlogs += blogNodesFragment.length
-            pageNo += 1
+            if (!nodes.length) break;
+
+            allBlogs = allBlogs.concat(nodes);
+            pageNo += 1;
+
+            if (pageNo > 50) break;
         }
 
-        if (totalBlogs >= totalDocuments) {
-            return blogNodesFragment
-        }
+        return allBlogs;
+    } catch (err) {
+        console.error('fetchBlogs error:', err);
+        return [];
     }
 }
