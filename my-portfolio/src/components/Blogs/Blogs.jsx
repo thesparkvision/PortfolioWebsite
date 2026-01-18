@@ -5,11 +5,16 @@ import "./Blogs.css"
 const BlogCard = ({ blog }) => {
     return (
         <div className="blog-card">
-            <a className="blog-link-wrapper" href={blog.url} target="_blank">
+            <a
+                className="blog-link-wrapper"
+                href={blog.url}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <div className="blog-title">{blog.title}</div>
                 <div className="blog-meta">
                     <p>Read: {blog.readTimeInMinutes} min</p>
-                    <p>PublishedOn: {formatDate(blog.publishedAt)}</p>
+                    <p>Published On: {formatDate(blog.publishedAt)}</p>
                 </div>
             </a>
         </div>
@@ -18,23 +23,39 @@ const BlogCard = ({ blog }) => {
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         const fetchBlogData = async () => {
-            const fetchedBlogs = await fetchBlogs()
-
-            if(fetchedBlogs?.length > 0)
-                setBlogs(fetchedBlogs)
+            setLoading(true)
+            setError(null)
+            try {
+                const fetchedBlogs = await fetchBlogs()
+                if (fetchedBlogs?.length > 0) {
+                    setBlogs(fetchedBlogs)
+                } else {
+                    setBlogs([])
+                }
+            } catch (err) {
+                setError('Failed to load blogs')
+                console.error(err)
+            } finally {
+                setLoading(false)
+            }
         }
-    
+
         fetchBlogData()
-      }, []);
-      
+    }, []);
+
     return (
         <article id="blogs-container">
+            {loading && <p>Loading blogs…</p>}
+            {error && <p className="error">{error}</p>}
+            {!loading && !error && blogs.length === 0 && <p>No blogs found.</p>}
             {
-                blogs.map((blog, index) =>
-                    <BlogCard key={index} blog={blog} />
+                !loading && !error && blogs.map((blog, index) =>
+                    <BlogCard key={blog.slug || blog.url || index} blog={blog} />
                 )
             }
         </article>
