@@ -4,11 +4,18 @@ header {
     align-items: center;
     background-color: #F9F8F9;
     padding: 1.5em 2em;
+}
 
-    @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+    header {
         flex-direction: column;
         row-gap: 1rem;
         padding-bottom: unset;
+    }
+
+    #page-links {
+        flex-direction: column;
+        row-gap: 1rem;
     }
 }
 
@@ -17,7 +24,7 @@ header {
 }
 
 #user-name:link, #user-name:visited {
-    color: cream;
+    color: #333; /* use a valid color */
 }
 
 nav ul {
@@ -35,12 +42,5 @@ nav ul li {
 }
 
 .nav-link:link, .nav-link:visited {
-    color: cream;
-}
-
-#page-links {
-    @media screen and (max-width: 768px) {
-        flex-direction: column;
-        row-gap: 1rem;
-    }
+    color: #333; /* use a valid color */
 }
