@@ -11,18 +11,16 @@ import './App.css'
 function App() {
 
   return (
-    <>
+    <BrowserRouter basename='/'>
       <Header />
       <main>
-        <BrowserRouter basename='/'>
-          <Routes>
-            <Route path="/" element={<About />} />
-            <Route path="/blogs" element={<Blogs />} />
-          </Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<About />} />
+          <Route path="/blogs" element={<Blogs />} />
+        </Routes>
       </main>
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }
 
