@@ -6,7 +6,7 @@ const SocialLink = ({item}) => {
         <li className="list-none">
             <a href={item.url}>
                 <img 
-                    className="size-5"
+                    className="size-6"
                     src={item.icon} 
                     alt={item.altText}
                 />
@@ -32,7 +32,7 @@ const NavigationLink = ({navLink}) => {
         <li>
             <NavLink 
                 to={navLink.path}
-                className={({isActive}) => isActive ? "text-amber-700": ""}
+                className={({isActive}) => isActive ? "text-amber-700 text-xl": "text-xl"}
             >
                 {navLink.name}
             </NavLink>
@@ -47,7 +47,7 @@ const Navigation = () => {
                 {navLinks.filter(navLink => navLink.show).map((navLink, index) => (
                     <NavigationLink 
                         key={index}
-                        navLink={navLink} 
+                        navLink={navLink}
                     />
                 ))}
             </ul>
@@ -61,7 +61,7 @@ const Header = () => {
             <h2>
                 <NavLink 
                     to="/" 
-                    className="text-2xl no-underline"
+                    className="text-3xl no-underline"
                 >
                     Aman Pandya
                 </NavLink>

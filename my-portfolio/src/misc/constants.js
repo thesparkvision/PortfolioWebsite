@@ -15,6 +15,9 @@ export const skills = [
     'Django',
     'Docker',
     'GraphQL',
+    'Redis',
+    'Celery',
+    'PostgreSQL',
     'HTML',
     'CSS',
     'Git'
