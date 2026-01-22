@@ -49,16 +49,22 @@ const Blogs = () => {
     }, []);
 
     return (
-        <article id="blogs-container">
-            {loading && <p>Loading blogs…</p>}
-            {error && <p className="error">{error}</p>}
-            {!loading && !error && blogs.length === 0 && <p>No blogs found.</p>}
-            {
-                !loading && !error && blogs.map((blog, index) =>
-                    <BlogCard key={blog.slug || blog.url || index} blog={blog} />
-                )
-            }
-        </article>
+        <section id="blogs-container">
+            <div>Thoughts, learnings, and stories from my journey.</div>
+            <div className="grid grid-cols-2 gap-4">
+                {loading && <p>Loading blogs…</p>}
+                {error && <p className="error">{error}</p>}
+                {!loading && !error && blogs.length === 0 && <p>No blogs found.</p>}
+                {
+                    !loading && !error && blogs.map((blog, index) =>
+                        <BlogCard 
+                            key={blog.slug || blog.url || index} 
+                            blog={blog} 
+                        />
+                    )
+                }
+            </div>
+        </section>
     )
 }
 
