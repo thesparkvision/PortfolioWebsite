@@ -1,23 +1,78 @@
-import { Link } from 'react-router-dom';
-import "./Header.css"
+import { NavLink } from "react-router-dom";
+import {socials, navLinks} from "../../misc/constants";
+
+const SocialLink = ({item}) => {
+    return (
+        <li className="list-none">
+            <a href={item.url}>
+                <img 
+                    className="size-5"
+                    src={item.icon} 
+                    alt={item.altText}
+                />
+            </a>
+        </li>
+    )
+}
+
+const SocialLinks = () => {
+    return (
+        <div className="flex gap-3">
+            {socials.filter(social => social.show).map(
+                (socialItem, index) => (
+                    <SocialLink key={index} item={socialItem} />
+                )
+            )}
+        </div>
+    )
+}
+
+const NavigationLink = ({navLink}) => {
+    return (
+        <li>
+            <NavLink 
+                to={navLink.path}
+                className={({isActive}) => isActive ? "text-amber-700": ""}
+            >
+                {navLink.name}
+            </NavLink>
+        </li>
+    )
+}
+
+const Navigation = () => {
+    return (
+        <nav>
+            <ul className="flex gap-4">
+                {navLinks.filter(navLink => navLink.show).map((navLink, index) => (
+                    <NavigationLink 
+                        key={index}
+                        navLink={navLink} 
+                    />
+                ))}
+            </ul>
+        </nav>
+    )
+}
 
 const Header = () => {
     return (
-        <header>
+        <header className="py-6 px-8">
             <h2>
-                <Link to="/" id="user-name">Aman Pandya</Link>
+                <NavLink 
+                    to="/" 
+                    className="text-2xl no-underline"
+                >
+                    Aman Pandya
+                </NavLink>
             </h2>
 
-            <nav>
-                <ul id="page-links">
-                    <li>
-                        <Link to="/" id="current-page-link" className="nav-link">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/blogs" className="nav-link">Blogs</Link>
-                    </li>
-                </ul>
-            </nav>
+            <hr className="mt-2 mb-4 border-gray-400"/>
+
+            <div className="flex justify-between">
+                <Navigation />
+                <SocialLinks />
+            </div>
         </header>
     )
 }

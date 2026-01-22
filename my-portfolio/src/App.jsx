@@ -11,16 +11,18 @@ import './App.css'
 function App() {
 
   return (
-    <BrowserRouter basename='/'>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/blogs" element={<Blogs />} />
-        </Routes>
-      </main>
-      <Footer />
-    </BrowserRouter>
+    <div className='mx-8'>
+      <BrowserRouter basename='/'>
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<About />} />
+            <Route path="/blogs" element={<Blogs />} />
+          </Routes>
+        </main>
+        <Footer />
+      </BrowserRouter>
+    </div>
   )
 }
 
