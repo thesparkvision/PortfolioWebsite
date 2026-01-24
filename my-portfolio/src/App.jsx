@@ -11,7 +11,7 @@ import './App.css'
 function App() {
 
   return (
-    <div className='mx-16'>
+    <div className='mx-60'>
       <BrowserRouter basename='/'>
         <Header />
         <main>

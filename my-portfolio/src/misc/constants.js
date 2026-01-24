@@ -18,6 +18,7 @@ export const skills = [
     'Redis',
     'Celery',
     'PostgreSQL',
+    'Tailwind',
     'HTML',
     'CSS',
     'Git'
