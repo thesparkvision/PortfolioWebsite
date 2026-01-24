@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { fetchBlogs, formatDate } from "../../misc/utils";
-import "./Blogs.css"
 
 const BlogCard = ({ blog }) => {
     return (
