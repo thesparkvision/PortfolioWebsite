@@ -44,7 +44,7 @@ const Navigation = () => {
     return (
         <nav>
             <ul className="flex gap-4">
-                {navLinks.filter(navLink => navLink.show).map((navLink, index) => (
+                {navLinks.sort((a,b) => a.order - b.order).filter(navLink => navLink.show).map((navLink, index) => (
                     <NavigationLink 
                         key={index}
                         navLink={navLink}
@@ -57,7 +57,7 @@ const Navigation = () => {
 
 const Header = () => {
     return (
-        <header className="py-6 px-8">
+        <header className="py-6">
             <h2>
                 <NavLink 
                     to="/" 

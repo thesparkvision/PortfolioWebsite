@@ -4,14 +4,14 @@ import "./Blogs.css"
 
 const BlogCard = ({ blog }) => {
     return (
-        <div className="blog-card">
+        <div className="border px-2 py-2 rounded-lg bg-amber-200!">
             <a
                 className="blog-link-wrapper"
                 href={blog.url}
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <div className="blog-title">{blog.title}</div>
+                <div className="font-bold mb-2">{blog.title}</div>
                 <div className="blog-meta">
                     <p>Read: {blog.readTimeInMinutes} min</p>
                     <p>Published On: {formatDate(blog.publishedAt)}</p>
@@ -50,7 +50,6 @@ const Blogs = () => {
 
     return (
         <section id="blogs-container">
-            <div>Thoughts, learnings, and stories from my journey.</div>
             <div className="grid grid-cols-2 gap-4">
                 {loading && <p>Loading blogs…</p>}
                 {error && <p className="error">{error}</p>}

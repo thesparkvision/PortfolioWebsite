@@ -68,6 +68,18 @@ export const navLinks = [
         "path": "/blogs",
         "name": "blogs",
         "show": true,
+        "order": 4
+    },
+    {
+        "path": "/about",
+        "name": "about",
+        "show": true,
         "order": 2
+    },
+    {
+        "path": "/projects",
+        "name": "projects",
+        "show": true,
+        "order": 3
     }
 ]

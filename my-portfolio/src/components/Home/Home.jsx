@@ -10,10 +10,10 @@ const pinnedProjects = [
     }
 ]
 
-const About = () => {
+const Home = () => {
     return (
         <Fragment>
-            <section id="intro" cla>
+            <section id="intro">
                 <div className="subheading font-bold mb-2 text-lg">Character Description</div>
                 <div className="text-base">The character is full stack software developer. He has worked primarily in Python and Javascript ecosystem. He is currently working as SDE2 at <ExternalLink href="https://agrichain.com/">Agrichain</ExternalLink>. He has earlier worked at <ExternalLink href="https://hashedin.com/">HashedinByDeloitte</ExternalLink>. He is keeping tabs with current AI tools and exploring some side projects in his spare time.</div>
             </section>
@@ -22,7 +22,7 @@ const About = () => {
                 <div className="subheading font-bold mb-2 text-lg">Character Magic Tools</div>
                 <ul id="key-skills" className="flex gap-4 flex-wrap">
                     {skills.map((skill, index) => 
-                        <li key={index} className="bg-amber-100 px-4 py-1.5 rounded-2xl">
+                        <li key={index} className="bg-amber-200 px-4 py-1.5 rounded-2xl">
                             {skill}
                         </li>
                     )}
@@ -33,8 +33,8 @@ const About = () => {
                 <div className="subheading font-bold mb-2 text-lg">Current Side Projects</div>
                 <ul className="list-disc mx-4">
                     {
-                        pinnedProjects.map(project => (
-                            <li>
+                        pinnedProjects.map((project, index) => (
+                            <li key={index}>
                                 <ExternalLink href={project.url}>{project.name}</ExternalLink> - {project.shortDescription}
                             </li>
                         ))
@@ -67,4 +67,4 @@ const About = () => {
     )
 }
 
-export default About;
+export default Home;

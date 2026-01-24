@@ -1,4 +1,6 @@
-export function ExternalLink({ href, children }) {
+import linkIndicatorIcon from "../assets/linkIndicator.svg";
+
+export function ExternalLink({ href, children}) {
   return (
     <a
       href={href}
@@ -8,5 +10,21 @@ export function ExternalLink({ href, children }) {
     >
       {children}
     </a>
+  )
+}
+
+export function LinkIndicator({link}){
+  if(!link)
+    return
+
+  return (
+    <ExternalLink href={link}>
+      <img
+        src={linkIndicatorIcon}
+        alt=""
+        className="ml-1 h-6 w-3 inline-block"
+        aria-hidden
+      />
+    </ExternalLink>
   )
 }
