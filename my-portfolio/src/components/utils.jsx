@@ -22,7 +22,7 @@ export function LinkIndicator({link}){
       <img
         src={linkIndicatorIcon}
         alt=""
-        className="ml-1 h-6 w-3 inline-block"
+        className="ml-1 h-6 w-4 -mt-1 inline-block"
         aria-hidden
       />
     </ExternalLink>
