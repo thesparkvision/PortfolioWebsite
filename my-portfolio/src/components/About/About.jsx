@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Clock } from "lucide-react";
 import { LinkWrapper } from "../utils"
 
 const workExperiences = [
@@ -58,20 +58,30 @@ const workExperiences = [
 
 const WorkExperience = ({workExperience}) => {
     return (
-        <p className="mb-8 text-justify border-l-2 border-r-2 py-1 px-2 rounded-md">
-            <div className="font-bold mb-3 flex justify-between">
-                <div>
-                    {workExperience.roles[0]} / <LinkWrapper href={workExperience.companyUrl}>{workExperience.companyName}</LinkWrapper>
+        <p className="mb-8 text-justify border-l-2 border-r-2 py-1 px-2 rounded-xl">
+            <div className="mb-3">
+                <div className="mb-1">
+                    <LinkWrapper href={workExperience.companyUrl}>{workExperience.companyName}</LinkWrapper>
                 </div>
-                <div>
-                    {workExperience.started} - {workExperience.ended}
+                <div className="flex flex-col md:flex-row md:justify-between font-medium">
+                    <div>
+                        {workExperience.roles[0]}
+                    </div>
+                    <div>
+                        <Clock className="inline-block w-3.5 h-3.5 -mt-0.5"/> {workExperience.started} - {workExperience.ended}
+                    </div>
                 </div>
             </div>
             <p className="mb-3">
                 {workExperience.shortDescription}
             </p>
             <div>
-                <strong>Tech Stack & Tools:</strong> {workExperience.techStackAndTools.join(", ")}
+                <div className="font-medium underline">
+                    Tech Stack & Tools:
+                </div>
+                <div>
+                    {workExperience.techStackAndTools.join(", ")}
+                </div>
             </div>
         </p>
     )
@@ -105,11 +115,19 @@ const About = () => {
 
             <section>
                 <h2 className="font-bold text-2xl mb-6">Education</h2>
-                <div className="flex justify-between">
-                    <div>
-                        <GraduationCap className="inline-block w-5 h-5 -mt-0.5"/> B.Tech. in Computer Science / Mahakal Institute Of Technology, Ujjain
+                <div>
+                    <div className="mb-1">
+                        <LinkWrapper href="https://mitujjain.ac.in/">Mahakal Institute Of Technology, Ujjain</LinkWrapper>
                     </div>
-                    <div>July 2017 - July 2021</div>
+                    <div className="flex flex-col md:flex-row lg:justify-between font-medium">
+                        <div>
+                            <GraduationCap className="inline-block w-5 h-5 -mt-0.5"/> B.Tech. in Computer Science and Engineering
+                        </div>
+                        <div>
+                            <Clock className="inline-block w-3.5 h-3.5 -mt-0.5"/> July 2017 - July 2021
+                        </div>
+                    </div>
+                    
                 </div>
             </section>
         </Fragment>
