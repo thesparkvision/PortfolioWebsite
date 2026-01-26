@@ -3,7 +3,7 @@ import { fetchBlogs, formatDate } from "../../misc/utils";
 
 const BlogCard = ({ blog }) => {
     return (
-        <div className="border px-2 py-2 rounded-lg bg-amber-200!">
+        <div className="border text-zinc-900 border-zinc-900 px-2 py-2 bg-amber-200! rounded-xl shadow-sm">
             <a
                 className="blog-link-wrapper"
                 href={blog.url}

@@ -43,7 +43,7 @@ const NavigationLink = ({navLink}) => {
 const Navigation = () => {
     return (
         <nav>
-            <ul className="flex flex-col lg:flex-row text-center lg: gap-4 mb-4">
+            <ul className="flex md:flex-row justify-center items-center gap-4 mb-4">
                 {navLinks.sort((a,b) => a.order - b.order).filter(navLink => navLink.show).map((navLink, index) => (
                     <NavigationLink 
                         key={index}
@@ -57,7 +57,7 @@ const Navigation = () => {
 
 const Header = () => {
     return (
-        <header className="py-6">
+        <header className="pt-6 pb-4 px-4 md:px-40 lg:px-50 xl:px-60 bg-amber-100">
             <h2 className="text-center lg:text-left">
                 <NavLink 
                     to="/" 

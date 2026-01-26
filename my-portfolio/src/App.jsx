@@ -6,15 +6,14 @@ import Home from './components/Home/Home'
 import Blogs from './components/Blogs/Blogs'
 import Projects from './components/Projects/Projects';
 import About from './components/About/About';
-import './App.css'
 
 function App() {
 
   return (
-    <div className='mx-4 md:mx-40 lg:mx-50 xl:mx-60 min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col bg-linear-to-b from-amber-50 via-amber-50 to-orange-100 text-amber-950'>
       <BrowserRouter basename='/'>
-        <Header/>
-        <main className='flex-1 px-0! pb-10!'>
+        <Header />
+        <main className='flex-1 pb-10! flex flex-col gap-8 px-4 md:px-40 lg:px-50 xl:px-60 py-4'>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
