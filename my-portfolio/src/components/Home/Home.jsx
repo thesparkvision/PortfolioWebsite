@@ -1,6 +1,7 @@
 import { Fragment } from "react"
 import { resumeURL, skills } from "../../misc/constants"
-import { ExternalLink } from "../utils"
+import { FileText } from "lucide-react";
+import { LinkWrapper } from "../utils"
 
 const pinnedProjects = [
     {
@@ -15,7 +16,7 @@ const Home = () => {
         <Fragment>
             <section id="intro">
                 <div className="subheading font-bold mb-2 text-lg">Character Description</div>
-                <div className="text-base">The character is full stack software developer. He has worked primarily in Python and Javascript ecosystem. He is currently working as SDE2 at <ExternalLink href="https://agrichain.com/">Agrichain</ExternalLink>. He has earlier worked at <ExternalLink href="https://hashedin.com/">HashedinByDeloitte</ExternalLink>. He is keeping tabs with current AI tools and exploring some side projects in his spare time.</div>
+                <div className="text-base">The character is full stack software developer. He has worked primarily in Python and Javascript ecosystem. He is currently working as SDE2 at <LinkWrapper href="https://agrichain.com/">Agrichain</LinkWrapper>. He has earlier worked at <LinkWrapper href="https://hashedin.com/">HashedinByDeloitte</LinkWrapper>. He is keeping tabs with current AI tools and exploring some side projects in his spare time.</div>
             </section>
 
             <section id="magic-tools">
@@ -35,7 +36,7 @@ const Home = () => {
                     {
                         pinnedProjects.map((project, index) => (
                             <li key={index}>
-                                <ExternalLink href={project.url}>{project.name}</ExternalLink> - {project.shortDescription}
+                                <LinkWrapper href={project.url}>{project.name}</LinkWrapper> - {project.shortDescription}
                             </li>
                         ))
                     }
@@ -60,7 +61,7 @@ const Home = () => {
                         no-underline
                     "
                 >
-                    View Resume 📝
+                    View Resume <FileText className="inline-block w-4.5 h-4.5 -mt-0.5"/>
                 </a>
             </section>
         </Fragment>

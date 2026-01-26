@@ -1,6 +1,6 @@
-import linkIndicatorIcon from "../assets/linkIndicator.svg";
+import { ExternalLink } from "lucide-react";
 
-export function ExternalLink({ href, children}) {
+export function LinkWrapper({ href, children}) {
   return (
     <a
       href={href}
@@ -18,13 +18,8 @@ export function LinkIndicator({link}){
     return
 
   return (
-    <ExternalLink href={link}>
-      <img
-        src={linkIndicatorIcon}
-        alt=""
-        className="ml-1 h-6 w-4 -mt-1 inline-block"
-        aria-hidden
-      />
-    </ExternalLink>
+    <LinkWrapper href={link}>
+      <ExternalLink className="inline-block w-3.5 h-3.5 -mt-0.5 text-zinc-900"/>
+    </LinkWrapper>
   )
 }

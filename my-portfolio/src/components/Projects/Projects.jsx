@@ -4,7 +4,7 @@ import { LinkIndicator } from "../utils"
 const projects = [
     {
         "title": "Read Every Week",
-        "description": "Tool to reduce overwhelming feeling of too much to read & encourage healthy reading habit",
+        "description": "Tool to reduce overwhelming feeling of too much to read & encourage healthy reading habit.",
         "githubLink": "https://github.com/thesparkvision/ReadEveryWeek",
         "liveLink": null,
         "pageLink": null
