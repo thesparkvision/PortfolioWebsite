@@ -11,14 +11,14 @@ const Home = () => {
         <Fragment>
             <section id="intro">
                 <div className="subheading font-bold mb-2 text-lg">Character Description</div>
-                <div className="text-base">The character is full stack software developer. He has worked primarily in Python and Javascript ecosystem. He is currently working as SDE2 at <LinkWrapper href="https://agrichain.com/">Agrichain</LinkWrapper>. He has earlier worked at <LinkWrapper href="https://hashedin.com/">HashedinByDeloitte</LinkWrapper>. He is keeping tabs with current AI tools and exploring some side projects in his spare time.</div>
+                <div className="text-base border-l-4 px-2 py-2 bg-[#FEEA9A]">The character is full stack software developer. He has worked primarily in Python and Javascript ecosystem. He is currently working as SDE2 at <LinkWrapper href="https://agrichain.com/">Agrichain</LinkWrapper>. He has earlier worked at <LinkWrapper href="https://hashedin.com/">HashedinByDeloitte</LinkWrapper>. He is keeping tabs with current AI tools and exploring some side projects in his spare time.</div>
             </section>
 
             <section id="magic-tools">
                 <div className="subheading font-bold mb-2 text-lg">Character Magic Tools</div>
                 <ul id="key-skills" className="flex gap-4 flex-wrap">
                     {skills.map((skill, index) => 
-                        <li key={index} className="border text-zinc-900 border-zinc-900 px-4 py-1.5 bg-amber-200! rounded-xl shadow-sm">
+                        <li key={index} className="border border-zinc-900 px-4 py-1.5 bg-[#FEEA9A]! rounded-xl shadow-sm">
                             {skill}
                         </li>
                     )}

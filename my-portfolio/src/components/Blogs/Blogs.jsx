@@ -6,7 +6,7 @@ import blogs from "../../data/blogs.json";
 const BlogCard = ({ blog }) => {
     return (
         <div 
-            className="border text-zinc-900 border-zinc-900 px-2 py-2 bg-amber-200! rounded-xl shadow-sm hover:bg-amber-500!"
+            className="border text-zinc-900 border-zinc-900 px-2 py-2 bg-[#FEEA9A]! rounded-xl shadow-sm hover:bg-[#FEDF75]!"
         >
             <a
                 className="flex flex-col h-full"

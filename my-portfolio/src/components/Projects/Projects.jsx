@@ -4,7 +4,7 @@ import projects from "../../data/projects.json"
 
 const Project = ({project}) => {
     return (
-        <div className="border text-zinc-900 border-zinc-900 px-2 py-2 bg-amber-200 rounded-xl shadow-sm">
+        <div className="border text-zinc-900 border-zinc-900 px-2 py-2 bg-[#FEEA9A] rounded-xl shadow-sm">
             <h4 className="font-bold mb-2">{project.title} <LinkIndicator link={project.githubLink} /></h4>
             <p className="text-justify sm:text-wrap">{project.description}</p>
         </div>
