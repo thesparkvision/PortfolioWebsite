@@ -22,7 +22,7 @@ const Home = () => {
                 <div className="subheading font-bold mb-2 text-lg">Character Magic Tools</div>
                 <ul id="key-skills" className="flex gap-4 flex-wrap">
                     {skills.map((skill, index) => 
-                        <li key={index} className="bg-amber-200 px-4 py-1.5 rounded-2xl">
+                        <li key={index} className="border text-zinc-900 border-zinc-900 px-4 py-1.5 bg-amber-200! rounded-xl shadow-sm">
                             {skill}
                         </li>
                     )}

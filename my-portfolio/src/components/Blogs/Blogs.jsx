@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Clock, Calendar } from "lucide-react";
 import { fetchBlogs, formatDate } from "../../misc/utils";
 
 const BlogCard = ({ blog }) => {
@@ -11,9 +12,13 @@ const BlogCard = ({ blog }) => {
                 rel="noopener noreferrer"
             >
                 <div className="font-bold mb-2">{blog.title}</div>
-                <div className="blog-meta">
-                    <p>Read: {blog.readTimeInMinutes} min</p>
-                    <p>Published On: {formatDate(blog.publishedAt)}</p>
+                <div className="flex gap-5">
+                    <div>
+                        <Calendar className="inline-block w-3.5 h-3.5 -mt-0.5"/> {formatDate(blog.publishedAt)}
+                    </div>
+                    <div>
+                        <Clock className="inline-block w-3.5 h-3.5 -mt-0.5"/> {blog.readTimeInMinutes} min read
+                    </div>
                 </div>
             </a>
         </div>

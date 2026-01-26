@@ -1,4 +1,6 @@
 import { NavLink } from "react-router-dom";
+import { WandSparkles } from "lucide-react";
+
 import {socials, navLinks} from "../../misc/constants";
 
 const SocialLink = ({item}) => {
@@ -55,15 +57,16 @@ const Navigation = () => {
     )
 }
 
+
 const Header = () => {
     return (
-        <header className="pt-6 pb-4 px-4 md:px-40 lg:px-50 xl:px-60 bg-amber-100">
+        <header className="pt-6 pb-4 px-4 md:px-40 lg:px-50 xl:px-60">
             <h2 className="text-center lg:text-left">
                 <NavLink 
                     to="/" 
-                    className="text-3xl no-underline"
+                    className="text-3xl no-underline font-extrabold"
                 >
-                    Aman Pandya
+                    <WandSparkles className="inline-block"/> Aman Pandya
                 </NavLink>
             </h2>
 
