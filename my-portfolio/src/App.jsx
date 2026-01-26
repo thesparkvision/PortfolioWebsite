@@ -11,10 +11,10 @@ import './App.css'
 function App() {
 
   return (
-    <div className='mx-60'>
+    <div className='mx-4 md:mx-40 lg:mx-50 xl:mx-60 min-h-screen flex flex-col'>
       <BrowserRouter basename='/'>
         <Header/>
-        <main className='px-0!'>
+        <main className='flex-1 px-0! pb-10!'>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

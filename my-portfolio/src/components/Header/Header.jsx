@@ -6,7 +6,7 @@ const SocialLink = ({item}) => {
         <li className="list-none">
             <a href={item.url}>
                 <img 
-                    className="size-6"
+                    className="size-5"
                     src={item.icon} 
                     alt={item.altText}
                 />
@@ -17,7 +17,7 @@ const SocialLink = ({item}) => {
 
 const SocialLinks = () => {
     return (
-        <div className="flex gap-3">
+        <div className="flex flex-row gap-3 justify-center">
             {socials.filter(social => social.show).map(
                 (socialItem, index) => (
                     <SocialLink key={index} item={socialItem} />
@@ -43,7 +43,7 @@ const NavigationLink = ({navLink}) => {
 const Navigation = () => {
     return (
         <nav>
-            <ul className="flex gap-4">
+            <ul className="flex flex-col lg:flex-row text-center lg: gap-4 mb-4">
                 {navLinks.sort((a,b) => a.order - b.order).filter(navLink => navLink.show).map((navLink, index) => (
                     <NavigationLink 
                         key={index}
@@ -58,7 +58,7 @@ const Navigation = () => {
 const Header = () => {
     return (
         <header className="py-6">
-            <h2>
+            <h2 className="text-center lg:text-left">
                 <NavLink 
                     to="/" 
                     className="text-3xl no-underline"
@@ -69,7 +69,7 @@ const Header = () => {
 
             <hr className="mt-2 mb-4 border-gray-400"/>
 
-            <div className="flex justify-between">
+            <div className="flex flex-col lg:flex-row lg:justify-between">
                 <Navigation />
                 <SocialLinks />
             </div>

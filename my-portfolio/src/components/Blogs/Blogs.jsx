@@ -49,7 +49,7 @@ const Blogs = () => {
 
     return (
         <section id="blogs-container">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4">
                 {loading && <p>Loading blogs…</p>}
                 {error && <p className="error">{error}</p>}
                 {!loading && !error && blogs.length === 0 && <p>No blogs found.</p>}

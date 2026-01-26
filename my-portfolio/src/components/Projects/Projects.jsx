@@ -29,7 +29,7 @@ const Project = ({project}) => {
     return (
         <div className="border px-2 py-2 rounded-lg bg-amber-200">
             <h4 className="font-bold mb-2">{project.title} <LinkIndicator link={project.githubLink} /></h4>
-            <p className="text-wrap">{project.description}</p>
+            <p className="text-justify sm:text-wrap">{project.description}</p>
         </div>
     )
 }
@@ -38,7 +38,7 @@ const Projects = () => {
     return (
         <Fragment>
             <section>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid sm:grid-cols-2 gap-6">
                     {
                         projects.map((project, index) => (
                             <Project key={index} project={project} />
