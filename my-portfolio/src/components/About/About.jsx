@@ -1,60 +1,8 @@
 import React, { Fragment } from "react"
 import { GraduationCap, Clock } from "lucide-react";
 import { LinkWrapper } from "../utils"
+import workExperiences from "../../data/workExperiences.json"
 
-const workExperiences = [
-    {
-        "roles": [
-            "Full Stack Software Engineer"
-        ],
-        "companyName": "Agrichain",
-        "companyUrl": "https://agrichain.com/",
-        "shortDescription": `
-            Building core features for an agricultural supply-chain platform where data correctness and reliability are non-negotiable.
-            Work across backend systems, financial calculations, analytics, and complex data-driven UIs.
-            Focused on improving operational trust by solving issues around consistency, synchronization, and scale.
-        `,
-        "started": "March 2024",
-        "ended": "Present",
-        "techStackAndTools": [
-            "Django",
-            "React",
-            "MaterialUI",
-            "Docker",
-            "Celery",
-            "Redis",
-            "AWS",
-            "Flower",
-            "PostgresSQL",
-            "Claude CLI",
-            "Opencode",
-            "Gemini 3"
-        ]
-    },
-    {
-        "roles": [
-            "Software Developer Engineer 2",
-            "Software Developer Engineer 1"
-        ],
-        "companyName": "Hashedin By Deloitte",
-        "companyUrl": "https://hashedin.com/",
-        "shortDescription": `
-            Worked across Python, AWS, and React on production systems. 
-            Over time, took ownership of backend architecture, led small teams, mentored juniors, and focused on reliability, testing, and documentation.
-        `,
-        "started": "July 2021",
-        "ended": "March 2024",
-        "techStackAndTools": [
-            "React",
-            "Django",
-            "GraphQL",
-            "AWS Lambda",
-            "AWS S3",
-            "Jest",
-            "Pandoc"
-        ]
-    }
-]
 
 const WorkExperience = ({workExperience}) => {
     return (
@@ -92,11 +40,11 @@ const About = () => {
             <section>
                 <h2 className="font-bold text-2xl mb-6">About Myself</h2>
                 <p className="mb-4 text-justify">
-                    I am Aman Pandya. I have been using computers since my childhood. I used to play computer games for hours and would stick to computer for hours.
-                    When I reached 11th grade, I got to realize that I am good with computers and code. Not that, I had thought what I wanted to be then.
-                    We were asked to make projects in 12th grade and one night, I remain awake till 5 just trying to make the project as I was imagining in my head.
-                    When it came to choosing what do I want to do, I could only think of that night when I did not care about anything and was having fun.
-                    And hence I became a software developer with time.
+                    I am Aman Pandya. I have been using computers since my childhood. I used to play computer games for hours.
+                    When I reached 11th grade, I realized that I am good with programming. I had not thought what I wanted as a career then.
+                    We were asked to make projects in 12th grade and one night, I remain awake till 5 a.m. just trying to create the project as I had the vision.
+                    When it came to choosing career path, I could only think of that night when I did not care about anything and was having fun.
+                    And here I am.
                 </p>
                 <p className="text-justify">
                     I aim to be a polyglot T-shaped developer with deep expertise in one of the areas with time. <strong>I wanna be the very best of myself</strong>. 

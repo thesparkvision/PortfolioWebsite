@@ -1,0 +1,44 @@
+[
+  {
+    "roles": ["Full Stack Software Engineer"],
+    "companyName": "Agrichain",
+    "companyUrl": "https://agrichain.com/",
+    "shortDescription": "Building core features for an agricultural supply-chain platform where data correctness and reliability are non-negotiable. Work across backend systems, financial calculations, analytics, and complex data-driven UIs. Focused on improving operational trust by solving issues around consistency, synchronization, and scale.",
+    "started": "March 2024",
+    "ended": "Present",
+    "techStackAndTools": [
+      "Django",
+      "React",
+      "MaterialUI",
+      "Docker",
+      "Celery",
+      "Redis",
+      "AWS",
+      "Flower",
+      "PostgreSQL",
+      "Claude CLI",
+      "Opencode",
+      "Gemini 3"
+    ]
+  },
+  {
+    "roles": [
+      "Software Developer Engineer 2",
+      "Software Developer Engineer 1"
+    ],
+    "companyName": "HashedIn by Deloitte",
+    "companyUrl": "https://hashedin.com/",
+    "shortDescription": "Worked across Python, AWS, and React on production systems. Over time, took ownership of backend architecture, led small teams, mentored juniors, and focused on reliability, testing, and documentation.",
+    "started": "July 2021",
+    "ended": "March 2024",
+    "techStackAndTools": [
+      "React",
+      "Django",
+      "GraphQL",
+      "AWS Lambda",
+      "AWS S3",
+      "Jest",
+      "Pandoc"
+    ]
+  }
+]

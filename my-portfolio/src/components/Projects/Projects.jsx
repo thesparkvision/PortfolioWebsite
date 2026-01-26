@@ -1,29 +1,6 @@
 import React, { Fragment } from "react"
 import { LinkIndicator } from "../utils"
-
-const projects = [
-    {
-        "title": "Read Every Week",
-        "description": "Tool to reduce overwhelming feeling of too much to read & encourage healthy reading habit.",
-        "githubLink": "https://github.com/thesparkvision/ReadEveryWeek",
-        "liveLink": null,
-        "pageLink": null
-    },
-    {
-        "title": "Tic Tac Toe",
-        "description": "Explored how tic tac toe game can be made.",
-        "githubLink": "https://github.com/thesparkvision/TicTacToe",
-        "liveLink": null,
-        "pageLink": null
-    },
-    {
-        "title": "DoList",
-        "description": "This is a task management application.",
-        "githubLink": "https://github.com/thesparkvision/DoList",
-        "liveLink": null,
-        "pageLink": null
-    }
-]
+import projects from "../../data/projects.json"
 
 const Project = ({project}) => {
     return (

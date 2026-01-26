@@ -2,16 +2,11 @@ import { Fragment } from "react"
 import { resumeURL, skills } from "../../misc/constants"
 import { FileText } from "lucide-react";
 import { LinkWrapper } from "../utils"
-
-const pinnedProjects = [
-    {
-        "name": "Read Every Week",
-        "url": "https://github.com/thesparkvision/ReadEveryWeek",
-        "shortDescription": "Tool to reduce overwhelming feeling of too much to read & encourage healthy reading habit."
-    }
-]
+import projects from "../../data/projects.json"
 
 const Home = () => {
+    const projectsToDisplay = projects.filter(project => project.showInHomePage);
+
     return (
         <Fragment>
             <section id="intro">
@@ -30,19 +25,23 @@ const Home = () => {
                 </ul>
             </section>
 
-            <section id="currently-doing">
-                <div className="subheading font-bold mb-2 text-lg">Current Side Projects</div>
-                <ul className="list-disc mx-4">
-                    {
-                        pinnedProjects.map((project, index) => (
-                            <li key={index}>
-                                <LinkWrapper href={project.url}>{project.name}</LinkWrapper> - {project.shortDescription}
-                            </li>
-                        ))
-                    }
-                   
-                </ul>
-            </section>
+            { projectsToDisplay?.length > 0 && (
+                <section id="currently-doing">
+                    <div className="subheading font-bold mb-2 text-lg">Current Side Projects</div>
+                    <ul className="list-disc mx-4">
+                        {
+                            projectsToDisplay.map((project, index) => (
+                                <li key={index}>
+                                    <LinkWrapper href={project.githubLink}>
+                                        {project.title}
+                                    </LinkWrapper> - {project.description}
+                                </li>
+                            ))
+                        }
+                    
+                    </ul>
+                </section>
+            )}
 
             <section id="action-content" className="text-center">
                 <a
