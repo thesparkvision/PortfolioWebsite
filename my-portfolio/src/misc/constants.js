@@ -3,6 +3,7 @@ import gmailIcon from "../assets/gmail.svg"
 import linkedinIcon from "../assets/linkedin.svg"
 import peerlistIcon from "../assets/peerlist.svg"
 import twitterIcon from "../assets/twitter.svg"
+import calendlyIcon from "../assets/calendly.svg"
 
 export const hashednodeUsername = 'amanpandya'
 export const hashnodeURL = 'https://gql.hashnode.com/'
@@ -53,6 +54,12 @@ export const socials = [
         'url': 'mailto:ampandya712@gmail.com',
         'icon': gmailIcon,
         'altText': 'Gmail logo',
+        'show': true
+    },
+    {
+        'url': 'https://calendly.com/amanpandya712/30min',
+        'icon': calendlyIcon,
+        'altText': 'Calendly representation',
         'show': true
     }
 ]
