@@ -4,6 +4,7 @@ const About = () => {
     return (
         <Fragment>
             <section>
+                <h2 className="font-bold text-2xl mb-6">About Myself</h2>
                 <p className="mb-4 text-justify">
                     I am Aman Pandya. I have been using computers since my childhood. I used to play computer games for hours and would stick to computer for hours.
                     When I reached 11th grade, I got to realize that I am good with computers and code. Not that, I had thought what I wanted to be then.

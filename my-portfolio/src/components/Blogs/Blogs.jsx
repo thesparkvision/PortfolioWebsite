@@ -54,6 +54,8 @@ const Blogs = () => {
 
     return (
         <section id="blogs-container">
+            <h2 className="font-bold text-2xl mb-2">Blogs</h2>
+            <p className="mb-6">My thoughts and musings.</p>
             <div className="grid sm:grid-cols-2 gap-4">
                 {loading && <p>Loading blogs…</p>}
                 {error && <p className="error">{error}</p>}

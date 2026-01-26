@@ -38,6 +38,8 @@ const Projects = () => {
     return (
         <Fragment>
             <section>
+                <h2 className="font-bold text-2xl mb-2">Projects</h2>
+                <p className="mb-6">A selection of things I've built.</p>
                 <div className="grid sm:grid-cols-2 gap-6">
                     {
                         projects.map((project, index) => (
