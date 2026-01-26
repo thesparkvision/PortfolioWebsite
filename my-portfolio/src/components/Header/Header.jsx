@@ -6,7 +6,11 @@ import {socials, navLinks} from "../../misc/constants";
 const SocialLink = ({item}) => {
     return (
         <li className="list-none">
-            <a href={item.url}>
+            <a 
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <img 
                     className="size-5"
                     src={item.icon} 
