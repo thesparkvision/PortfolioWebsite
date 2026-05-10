@@ -6,33 +6,31 @@ import workExperiences from "../../data/workExperiences.json"
 
 const WorkExperience = ({workExperience}) => {
     return (
-        <div className="flex py-2">
-            <p className="mb-8 text-justify px-2 py-2 border-l-4 bg-[#FEEA9A]">
-                <div className="mb-3">
-                    <div className="mb-1">
-                        <LinkWrapper href={workExperience.companyUrl}>{workExperience.companyName}</LinkWrapper>
-                    </div>
-                    <div className="flex flex-col md:flex-row md:justify-between italic font-semibold">
-                        <div>
-                            {workExperience.roles[0]}
-                        </div>
-                        <div>
-                            <Clock className="inline-block w-3.5 h-3.5 -mt-0.5"/> {workExperience.started} - {workExperience.ended}
-                        </div>
-                    </div>
+        <div className="mb-8 text-justify px-2 py-2 border-l-4 bg-[#FEEA9A]">
+            <div className="mb-3">
+                <div className="mb-1">
+                    <LinkWrapper href={workExperience.companyUrl}>{workExperience.companyName}</LinkWrapper>
                 </div>
-                <p className="mb-3 text-base">
-                    {workExperience.shortDescription}
-                </p>
-                <div>
-                    <div className="font-medium underline underline-offset-2">
-                        Tech Stack & Tools
+                <div className="flex flex-col md:flex-row md:justify-between italic font-semibold">
+                    <div>
+                        {workExperience.roles[0]}
                     </div>
                     <div>
-                        {workExperience.techStackAndTools.join(", ")}
+                        <Clock className="inline-block w-3.5 h-3.5 -mt-0.5"/> {workExperience.started} - {workExperience.ended}
                     </div>
                 </div>
+            </div>
+            <p className="mb-3 text-base">
+                {workExperience.shortDescription}
             </p>
+            <div>
+                <div className="font-medium underline underline-offset-2">
+                    Tech Stack & Tools
+                </div>
+                <div>
+                    {workExperience.techStackAndTools.join(", ")}
+                </div>
+            </div>
         </div>
     )
 }

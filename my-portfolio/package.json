@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node ssg.js",
+    "ssg": "node ssg.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -14,7 +15,7 @@
     "lucide-react": "^0.563.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.5.1",
+    "react-router-dom": "^7.15.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

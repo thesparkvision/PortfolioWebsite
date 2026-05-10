@@ -9,4 +9,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  build: {
+    manifest: true,
+  },
 })
