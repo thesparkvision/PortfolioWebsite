@@ -36,10 +36,10 @@ export const socials = [
         'url': 'https://www.linkedin.com/in/amanpandya/',
         'icon': linkedinIcon,
         'altText': 'Linkedin logo',
-        'show': false
+        'show': true
     },
     {
-        'url': 'https://peerlist.io/thesparkvision',
+        'url': 'https://peerlist.io/amanpandya828',
         'icon': peerlistIcon,
         'altText': 'Peerlist logo',
         'show': true
