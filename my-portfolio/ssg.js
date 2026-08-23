@@ -9,9 +9,9 @@ const manifestPath = path.join(distDir, '.vite', 'manifest.json')
 
 const routes = [
   { path: '/', title: 'Aman Pandya | Home', description: 'Portfolio of Aman Pandya', output: 'index.html', relativePath: '' },
-  { path: '/about', title: 'About | Aman Pandya', description: 'About Aman Pandya', output: path.join('about', 'index.html'), relativePath: '..' },
-  { path: '/blogs', title: 'Blogs | Aman Pandya', description: 'Blog posts by Aman Pandya', output: path.join('blogs', 'index.html'), relativePath: '..' },
-  { path: '/projects', title: 'Projects | Aman Pandya', description: 'Projects by Aman Pandya', output: path.join('projects', 'index.html'), relativePath: '..' },
+  { path: '/about/', title: 'About | Aman Pandya', description: 'About Aman Pandya', output: path.join('about', 'index.html'), relativePath: '..' },
+  { path: '/blogs/', title: 'Blogs | Aman Pandya', description: 'Blog posts by Aman Pandya', output: path.join('blogs', 'index.html'), relativePath: '..' },
+  { path: '/projects/', title: 'Projects | Aman Pandya', description: 'Projects by Aman Pandya', output: path.join('projects', 'index.html'), relativePath: '..' },
 ]
 
 const analyticsScript = '<script defer src="https://cloud.umami.is/script.js" data-website-id="9894278a-f5f1-4080-872b-aeb3673d99d8"></script>'
@@ -20,7 +20,7 @@ async function readManifest() {
   try {
     const content = await fs.readFile(manifestPath, 'utf8')
     return JSON.parse(content)
-  } catch (error) {
+  } catch {
     throw new Error(`Cannot read manifest at ${manifestPath}. Run "npm run build" first.`)
   }
 }
@@ -32,25 +32,28 @@ function makeHtml({ title, description, body, assets, relativePath }) {
   }).join('\n    ');
   const scriptTags = assets.file ? `<script type="module" src="${relativePath ? `${relativePath}/${assets.file}` : `/${assets.file}`}"></script>` : '';
 
-  return `<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${title}</title>
-    <meta name="author" content="Aman Pandya" />
-    <meta name="description" content="${description}" />
-    <meta name="keywords" content="Aman,Pandya,Portfolio,Website" />
-    <link rel="icon" href="${relativePath ? `${relativePath}/assets/sailboat.svg` : '/assets/sailboat.svg'}" type="image/svg+xml" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat" />
-    ${cssLinks}
-    ${analyticsScript}
-  </head>
-  <body>
-    <div id="root">${body}</div>
-    ${scriptTags}
-  </body>
-</html>`;
+  return `
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script>document.documentElement.classList.add('js')</script>
+        <title>${title}</title>
+        <meta name="author" content="Aman Pandya" />
+        <meta name="description" content="${description}" />
+        <meta name="keywords" content="Aman,Pandya,Portfolio,Website" />
+        <link rel="icon" href="${relativePath ? `${relativePath}/assets/sailboat.svg` : '/assets/sailboat.svg'}" type="image/svg+xml" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SN+Pro:wght@400;500;600;700&display=swap" />
+        ${cssLinks}
+        ${analyticsScript}
+      </head>
+      <body>
+        <div id="root">${body}</div>
+        ${scriptTags}
+      </body>
+    </html>
+  `;
 }
 
 
@@ -100,5 +103,5 @@ async function generate() {
 
 generate().catch((error) => {
   console.error(error)
-  process.exit(1)
+  globalThis.process.exit(1)
 })

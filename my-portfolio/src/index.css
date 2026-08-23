@@ -1,1 +1,181 @@
 @import "tailwindcss";
+
+:root {
+  --color-text: #161616;
+  --color-background: #f7f7f5;
+  --color-primary: #161616;
+  --color-secondary: #e7e7e2;
+  --color-accent: #d94b3d;
+  --color-link: #b53a2c;
+}
+
+[data-theme="dark"] {
+  --color-text: #f4f1ea;
+  --color-background: #20211f;
+  --color-primary: #d85d4a;
+  --color-secondary: #30332f;
+  --color-accent: #ffaa99;
+  --color-link: #ff9a8a;
+}
+
+[data-theme="light"],
+[data-theme="dark"] {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] img[alt="Github logo"] {
+  filter: invert(1);
+}
+
+[data-theme="dark"] img[alt="Twitter logo"] {
+  filter: invert(1);
+}
+
+.js-only {
+  display: none !important;
+}
+
+html.js .js-only {
+  display: inline-flex !important;
+}
+
+@layer base {
+  html {
+    font-size: 100%;
+  }
+
+  body {
+    font-family: "SN Pro", system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    max-width: 65ch;
+  }
+}
+
+.page-heading {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.15;
+}
+
+.content-list {
+  border-top: 1px solid color-mix(in srgb, var(--color-text) 20%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 20%, transparent);
+}
+
+.body-copy {
+  line-height: 1.75;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (min-width: 768px) {
+  .page-heading {
+    font-size: 1.875rem;
+  }
+}
+
+@keyframes wand-spark {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  45% {
+    transform: rotate(-16deg) scale(1.12);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .wand-toggle-icon {
+    animation: wand-spark 420ms ease-out;
+  }
+
+  .theme-toggle-spark {
+    animation: theme-sparkle 520ms ease-out both;
+  }
+
+  .theme-toggle-spark:nth-child(2) {
+    animation-delay: 40ms;
+  }
+
+  .theme-toggle-spark:nth-child(3) {
+    animation-delay: 80ms;
+  }
+
+  .theme-toggle-spark:nth-child(4) {
+    animation-delay: 120ms;
+  }
+
+  .theme-toggle-spark:nth-child(5) {
+    animation-delay: 160ms;
+  }
+
+  .magic-page-spark {
+    animation: magic-page-sparkle 1100ms ease-out both;
+  }
+
+  .magic-page-spark:nth-child(2n) {
+    animation-delay: 80ms;
+  }
+
+  .magic-page-spark:nth-child(3n) {
+    animation-delay: 160ms;
+  }
+}
+
+@keyframes theme-sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translate(0, 0) rotate(0deg);
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1) translate(var(--spark-x), var(--spark-y)) rotate(90deg);
+  }
+}
+
+.theme-toggle-spark {
+  opacity: 0;
+}
+
+@keyframes magic-page-sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) rotate(0deg);
+  }
+
+  25% {
+    opacity: 1;
+    transform: scale(1.25) rotate(30deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.8) rotate(90deg);
+  }
+}

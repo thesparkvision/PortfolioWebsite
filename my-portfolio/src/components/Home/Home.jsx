@@ -1,7 +1,7 @@
 import { Fragment } from "react"
-import { resumeURL, skills } from "../../misc/constants"
+import { resumeURL } from "../../misc/constants"
 import { FileText } from "lucide-react";
-import { LinkWrapper } from "../utils"
+import { GithubAction, LinkWrapper } from "../utils"
 import projects from "../../data/projects.json"
 
 const Home = () => {
@@ -9,32 +9,37 @@ const Home = () => {
 
     return (
         <Fragment>
-            <section id="intro">
-                <div className="subheading font-bold mb-2 text-lg">Character Description</div>
-                <div className="text-base border-l-4 px-2 py-2 bg-[#FEEA9A]">The character is full stack software developer. He has worked primarily in Python and Javascript ecosystem. He is currently working as SDE2 at <LinkWrapper href="https://agrichain.com/">Agrichain</LinkWrapper>. He has earlier worked at <LinkWrapper href="https://hashedin.com/">HashedinByDeloitte</LinkWrapper>. He is keeping tabs with current AI tools and exploring some side projects in his spare time.</div>
-            </section>
+            <section id="intro" className="grid gap-8 py-8 md:grid-cols-[minmax(0,1.35fr)_minmax(15rem,0.65fr)] md:items-end md:gap-12 md:py-12">
+                <div>
+                    <h1 className="max-w-3xl font-bold text-4xl md:text-6xl">Full-stack software engineer</h1>
+                    <p className="mt-6 max-w-2xl text-lg leading-8">I'm a Software Development Engineer 2 at <LinkWrapper href="https://agrichain.com/">AgriChain</LinkWrapper>, building reliable, data-heavy software with Python, Django, React, and AWS.</p>
+                </div>
 
-            <section id="magic-tools">
-                <div className="subheading font-bold mb-2 text-lg">Character Magic Tools</div>
-                <ul id="key-skills" className="flex gap-4 flex-wrap">
-                    {skills.map((skill, index) => 
-                        <li key={index} className="border border-zinc-900 px-4 py-1.5 bg-[#FEEA9A]! rounded-xl shadow-sm">
-                            {skill}
-                        </li>
-                    )}
-                </ul>
+                <div className="md:border-l md:pl-8">
+                    <a
+                        href={resumeURL}
+                        id="view-resume-btn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-6 inline-flex items-center gap-2 rounded-lg border border-[var(--color-primary)] bg-[var(--color-primary)] px-6 py-3 text-lg text-white no-underline"
+                    >
+                        View resume <FileText className="h-4.5 w-4.5" />
+                    </a>
+                </div>
             </section>
 
             { projectsToDisplay?.length > 0 && (
-                <section id="currently-doing">
-                    <div className="subheading font-bold mb-2 text-lg">Current Side Projects</div>
-                    <ul className="list-disc mx-4">
+                <section id="selected-work">
+                    <h2 className="mb-4 font-bold text-xl md:text-2xl">Featured project</h2>
+                    <ul className="content-list">
                         {
                             projectsToDisplay.map((project, index) => (
-                                <li key={index}>
-                                    <LinkWrapper href={project.githubLink}>
-                                        {project.title}
-                                    </LinkWrapper> - {project.description}
+                                <li key={index} className="grid gap-2 py-6 md:grid-cols-[minmax(12rem,0.35fr)_minmax(0,1fr)] md:gap-8">
+                                    <div>
+                                        <span className="font-semibold text-lg">{project.title}</span>
+                                        <GithubAction href={project.githubLink} />
+                                    </div>
+                                    <p className="body-copy">{project.description}</p>
                                 </li>
                             ))
                         }
@@ -43,26 +48,6 @@ const Home = () => {
                 </section>
             )}
 
-            <section id="action-content" className="text-center">
-                <a
-                    href={resumeURL}
-                    id="view-resume-btn"
-                    target="_blank"
-                    className="
-                        inline-block
-                        px-12 py-4
-                        text-lg
-                        text-white
-                        bg-slate-500
-                        border border-slate-500
-                        rounded-lg
-                        cursor-pointer
-                        no-underline
-                    "
-                >
-                    View Resume <FileText className="inline-block w-4.5 h-4.5 -mt-0.5"/>
-                </a>
-            </section>
         </Fragment>
     )
 }

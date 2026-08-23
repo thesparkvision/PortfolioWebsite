@@ -1,40 +1,34 @@
-import { useState, useEffect } from "react";
-import { Clock, Calendar } from "lucide-react";
-import { fetchBlogs, formatDate } from "../../misc/utils";
+import { formatDate } from "../../misc/utils";
+import { PageHeading } from "../utils";
 import blogs from "../../data/blogs.json";
 
 const BlogCard = ({ blog }) => {
     return (
-        <div 
-            className="border text-zinc-900 border-zinc-900 px-2 py-2 bg-[#FEEA9A]! rounded-xl shadow-sm hover:bg-[#FEDF75]!"
-        >
+        <li className="border-b border-[var(--color-text)]/20 py-6 last:border-b-0">
             <a
-                className="flex flex-col h-full"
+                className="grid gap-2 no-underline md:grid-cols-[minmax(14rem,0.4fr)_minmax(0,1fr)_auto] md:items-start md:gap-8"
                 href={blog.url}
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <div className="font-bold mb-2">{blog.title}</div>
-                <p className="flex-1 mb-2">{blog.brief}</p>
-                <div className="flex gap-5">
-                    <div>
-                        <Calendar className="inline-block w-3.5 h-3.5 -mt-0.5"/> {formatDate(blog.publishedAt)}
-                    </div>
-                    <div>
-                        <Clock className="inline-block w-3.5 h-3.5 -mt-0.5"/> {blog.readTimeInMinutes} min read
-                    </div>
+                <h3 className="font-bold text-lg text-[var(--color-link)] underline underline-offset-2">{blog.title}</h3>
+                <p className="body-copy">{blog.brief}</p>
+                <div className="flex flex-wrap gap-x-2 text-sm text-[var(--color-text)]/70 md:justify-end">
+                    <span>{formatDate(blog.publishedAt)}</span>
+                    <span aria-hidden="true">·</span>
+                    <span>{blog.readTimeInMinutes} min read</span>
                 </div>
             </a>
-        </div>
+        </li>
     )
 }
 
 const Blogs = () => {
     return (
         <section id="blogs-container">
-            <h2 className="font-bold text-2xl mb-2">Blogs</h2>
-            <p className="mb-6">My thoughts and musings.</p>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <PageHeading className="mb-2">Writing</PageHeading>
+            <p className="mb-6 body-copy">Writing about engineering, learning, and ideas.</p>
+            <ul className="content-list">
                 {blogs?.length === 0 && <p>No blogs found.</p>}
                 {
                     blogs?.map((blog, index) =>
@@ -44,7 +38,7 @@ const Blogs = () => {
                         />
                     )
                 }
-            </div>
+            </ul>
         </section>
     )
 }

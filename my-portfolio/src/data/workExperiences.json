@@ -1,44 +1,38 @@
 [
   {
-    "roles": ["Full Stack Software Engineer"],
-    "companyName": "Agrichain",
+    "roles": ["Software Development Engineer 2"],
+    "companyName": "AgriChain",
     "companyUrl": "https://agrichain.com/",
-    "shortDescription": "Building core features for an agricultural supply-chain platform where data correctness and reliability are non-negotiable. Work across backend systems, financial calculations, analytics, and complex data-driven UIs. Focused on improving operational trust by solving issues around consistency, synchronization, and scale.",
+    "shortDescription": "Own and develop end-to-end features for an agricultural supply-chain platform. Work across data ingestion, financial workflows, analytics, authentication, data-heavy interfaces, and integrations.",
     "started": "March 2024",
     "ended": "Present",
-    "techStackAndTools": [
-      "Django",
-      "React",
-      "MaterialUI",
-      "Docker",
-      "Celery",
-      "Redis",
-      "AWS",
-      "Flower",
-      "PostgreSQL",
-      "Claude CLI",
-      "Opencode",
-      "Gemini 3"
-    ]
+    "techStackAndTools": ["Django", "React", "Material UI", "Docker", "Celery", "Redis", "AWS", "PostgreSQL"]
   },
   {
-    "roles": [
-      "Software Developer Engineer 2",
-      "Software Developer Engineer 1"
-    ],
+    "roles": ["Software Development Engineer 2"],
     "companyName": "HashedIn by Deloitte",
     "companyUrl": "https://hashedin.com/",
-    "shortDescription": "Worked across Python, AWS, and React on production systems. Over time, took ownership of backend architecture, led small teams, mentored juniors, and focused on reliability, testing, and documentation.",
-    "started": "July 2021",
+    "shortDescription": "Built Python and AWS solutions, led technical work, mentored junior developers, reviewed code, wrote technical documentation, and delivered reusable React and GraphQL features.",
+    "started": "August 2022",
     "ended": "March 2024",
-    "techStackAndTools": [
-      "React",
-      "Django",
-      "GraphQL",
-      "AWS Lambda",
-      "AWS S3",
-      "Jest",
-      "Pandoc"
-    ]
+    "techStackAndTools": ["Python", "React", "Django", "GraphQL", "AWS Lambda", "AWS S3", "Pytest", "Jest"]
+  },
+  {
+    "roles": ["Software Development Engineer 1"],
+    "companyName": "HashedIn by Deloitte",
+    "companyUrl": "https://hashedin.com/",
+    "shortDescription": "Worked as a React and Django full-stack developer, building responsive interfaces, integrating GraphQL APIs, and contributing to Python scripts, PostgreSQL data modelling, and backend features.",
+    "started": "July 2021",
+    "ended": "August 2022",
+    "techStackAndTools": ["React", "Django", "GraphQL", "Python", "PostgreSQL"]
+  },
+  {
+    "roles": ["Software Engineering Intern"],
+    "companyName": "HashedIn by Deloitte",
+    "companyUrl": "https://hashedin.com/",
+    "shortDescription": "Worked on a software product with a team of four, contributing mainly to React features for cart and slot management and implementing cookie-based authentication with Spring Boot.",
+    "started": "April 2021",
+    "ended": "July 2021",
+    "techStackAndTools": ["Spring Boot", "PostgreSQL", "React", "Git", "HTML", "CSS"]
   }
 ]

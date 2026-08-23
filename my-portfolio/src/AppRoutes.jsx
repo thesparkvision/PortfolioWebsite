@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import Footer from './components/Footer/Footer'
@@ -8,10 +9,13 @@ import Projects from './components/Projects/Projects'
 import About from './components/About/About'
 
 const AppRoutes = () => {
+  const [isDark, setIsDark] = useState(false)
+
   return (
-    <div className='min-h-screen flex flex-col bg-[#fdf8f3]'>
-      <Header />
-      <main className='flex-1 pb-10! flex flex-col gap-8 px-4 md:px-40 lg:px-50 xl:px-60 py-4'>
+    <div data-theme={isDark ? 'dark' : 'light'} className='min-h-screen flex flex-col bg-[var(--color-background)]'>
+      <a href='#main-content' className='sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-[var(--color-primary)] focus:px-4 focus:py-2 focus:text-white'>Skip to main content</a>
+      <Header isDark={isDark} onToggleTheme={() => setIsDark(current => !current)} />
+      <main id='main-content' className='mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-4 py-4 pb-10! sm:px-8 lg:px-12'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />

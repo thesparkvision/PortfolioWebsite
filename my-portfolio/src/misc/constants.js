@@ -67,25 +67,25 @@ export const socials = [
 export const navLinks = [
     {
         "path": "/",
-        "name": "home",
+        "name": "Home",
         "show": true,
         "order": 1
     },
     {
-        "path": "/blogs",
-        "name": "blogs",
+        "path": "/blogs/",
+        "name": "Writing",
         "show": true,
         "order": 4
     },
     {
-        "path": "/about",
-        "name": "about",
+        "path": "/about/",
+        "name": "About",
         "show": true,
         "order": 2
     },
     {
-        "path": "/projects",
-        "name": "projects",
+        "path": "/projects/",
+        "name": "Projects",
         "show": true,
         "order": 3
     }
