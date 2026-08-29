@@ -3,10 +3,17 @@ import ClockIcon from './ClockIcon.astro'
 import GraduationCapIcon from './GraduationCapIcon.astro'
 ---
 
-<div>
-  <div class="mb-1"><a class="content-link focus-ring" href="https://mitujjain.ac.in/" target="_blank" rel="noopener noreferrer">Mahakal Institute Of Technology, Ujjain</a></div>
-  <div class="flex flex-col font-semibold italic md:flex-row lg:justify-between">
+<div class="education">
+  <div class="education__school">
+    <a
+      class="content-link focus-ring"
+      href="https://mitujjain.ac.in/"
+      target="_blank"
+      rel="noopener noreferrer">Mahakal Institute Of Technology, Ujjain</a
+    >
+  </div>
+  <div class="education__details">
     <div><GraduationCapIcon /> B.Tech. in Computer Science and Engineering</div>
-    <div><ClockIcon /> July 2017 - July 2021</div>
+    <div class="education__date"><ClockIcon /> July 2017 - July 2021</div>
   </div>
 </div>

@@ -2,12 +2,22 @@
 import { resumeURL } from '../site.js'
 ---
 
-<section id="intro" class="grid gap-8 py-8 md:grid-cols-[minmax(0,1.35fr)_minmax(15rem,0.65fr)] md:items-end md:gap-12 md:py-12">
+<section id="intro" class="home-intro">
   <div>
-    <h1 class="max-w-3xl font-bold text-4xl md:text-6xl">Full-stack software engineer</h1>
-    <p class="mt-6 max-w-2xl text-lg leading-8">I'm a Software Development Engineer 2 at <a class="content-link" href="https://agrichain.com/">AgriChain</a>, building reliable, data-heavy software with Python, Django, React, and AWS.</p>
+    <h1 class="home-intro__heading">Full-stack software engineer</h1>
+    <p class="home-intro__lead">
+      I'm a Software Development Engineer 2 at <a class="content-link" href="https://agrichain.com/"
+        >AgriChain</a
+      >, building reliable, data-heavy software with Python, Django, React, and AWS.
+    </p>
   </div>
-  <div class="md:border-l md:pl-8">
-    <a href={resumeURL} id="view-resume-btn" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 rounded-lg border border-[var(--color-primary)] bg-[var(--color-primary)] px-6 py-3 text-lg text-white no-underline">View resume <span aria-hidden="true">↗</span></a>
+  <div class="home-intro__resume">
+    <a
+      href={resumeURL}
+      id="view-resume-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="resume-button">View resume <span aria-hidden="true">↗</span></a
+    >
   </div>
 </section>

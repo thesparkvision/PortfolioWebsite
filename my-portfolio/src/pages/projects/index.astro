@@ -7,10 +7,10 @@ import projects from '../../data/projects.json'
 
 <BaseLayout title="Projects | Aman Pandya" description="Projects by Aman Pandya">
   <PageShell>
-      <section aria-labelledby="projects-heading">
-        <h1 id="projects-heading" class="page-heading mb-2">Projects</h1>
-        <p class="mb-6 body-copy">A selection of things I have built.</p>
-        <ProjectList projects={projects} />
-      </section>
+    <section class="page-section" aria-labelledby="projects-heading">
+      <h1 id="projects-heading" class="page-heading">Projects</h1>
+      <p class="body-copy">A selection of things I have built.</p>
+      <ProjectList projects={projects} />
+    </section>
   </PageShell>
 </BaseLayout>

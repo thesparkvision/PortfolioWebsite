@@ -5,34 +5,58 @@ const { experiences } = Astro.props
 const groupedExperiences = experiences.reduce((companies, experience) => {
   const company = companies.find((item) => item.companyName === experience.companyName)
   if (company) company.roles.push(experience)
-  else companies.push({ companyName: experience.companyName, companyUrl: experience.companyUrl, roles: [experience] })
+  else
+    companies.push({
+      companyName: experience.companyName,
+      companyUrl: experience.companyUrl,
+      roles: [experience],
+    })
   return companies
 }, [])
 ---
 
-<div class="ml-2 border-l border-[var(--color-text)]/25 pl-8 md:ml-4">
-  {groupedExperiences.map((company) => {
-    const isCurrent = company.roles.some((role) => role.ended === 'Present')
-    return (
-      <div class="relative pb-10 last:pb-0">
-        <span aria-hidden="true" class:list={["absolute -left-[37px] top-1 rounded-full", isCurrent ? "size-3 bg-[var(--color-accent)] ring-4 ring-[var(--color-background)]" : "size-2.5 border-2 border-[var(--color-accent)] bg-[var(--color-background)]"]}></span>
-        <div class="mb-4 font-semibold"><a class="content-link focus-ring" href={company.companyUrl} target="_blank" rel="noopener noreferrer">{company.companyName}</a></div>
-        <div class="ml-2 pl-8">
-          {company.roles.map((role) => (
-            <div class="border-b border-[var(--color-text)]/15 pb-8 pt-8 first:pt-0 last:border-b-0">
-              <div class="mb-3 flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
-                <div class="font-semibold">{role.roles[0]}</div>
-                <div class="text-sm italic md:text-right"><ClockIcon /> {role.started} - {role.ended}</div>
+<div class="work-history">
+  {
+    groupedExperiences.map((company) => {
+      const isCurrent = company.roles.some((role) => role.ended === 'Present')
+      return (
+        <div class="work-company">
+          <span
+            aria-hidden="true"
+            class:list={[
+              'work-company__marker',
+              isCurrent ? 'work-company__marker--current' : 'work-company__marker--past',
+            ]}
+          />
+          <div class="work-company__name">
+            <a
+              class="content-link focus-ring"
+              href={company.companyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {company.companyName}
+            </a>
+          </div>
+          <div class="work-roles">
+            {company.roles.map((role) => (
+              <div class="work-role">
+                <div class="work-role__header">
+                  <div class="work-role__title">{role.roles[0]}</div>
+                  <div class="work-role__date">
+                    <ClockIcon /> {role.started} - {role.ended}
+                  </div>
+                </div>
+                <p class="work-role__description body-copy">{role.shortDescription}</p>
+                <div>
+                  <div class="work-role__stack">Tech Stack &amp; Tools</div>
+                  <div>{role.techStackAndTools.join(', ')}</div>
+                </div>
               </div>
-              <p class="mb-3 body-copy text-base">{role.shortDescription}</p>
-              <div>
-                <div class="font-medium underline underline-offset-2">Tech Stack &amp; Tools</div>
-                <div>{role.techStackAndTools.join(', ')}</div>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    )
-  })}
+      )
+    })
+  }
 </div>

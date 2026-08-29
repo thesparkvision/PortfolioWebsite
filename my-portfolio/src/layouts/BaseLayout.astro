@@ -1,10 +1,7 @@
 ---
 import '../index.css'
 
-const {
-  title = 'Aman Pandya',
-  description = 'Portfolio of Aman Pandya',
-} = Astro.props
+const { title = 'Aman Pandya', description = 'Portfolio of Aman Pandya' } = Astro.props
 
 const siteUrl = Astro.site ?? new URL('https://www.amanpandya.com')
 const canonical = new URL(Astro.url.pathname, siteUrl)
@@ -43,9 +40,12 @@ const structuredData = {
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <link rel="icon" href="/assets/sailboat.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SN+Pro:wght@400;500;600;700&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=SN+Pro:wght@400;500;600;700&display=swap"
+    />
     <title>{title}</title>
   </head>
   <body>

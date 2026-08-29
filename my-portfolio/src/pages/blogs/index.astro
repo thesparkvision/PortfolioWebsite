@@ -7,10 +7,10 @@ import blogs from '../../data/blogs.json'
 
 <BaseLayout title="Blogs | Aman Pandya" description="Blog posts by Aman Pandya">
   <PageShell>
-      <section id="blogs-container" aria-labelledby="writing-heading">
-        <h1 id="writing-heading" class="page-heading mb-2">Writing</h1>
-        <p class="mb-6 body-copy">Writing about engineering, learning, and ideas.</p>
-        <BlogList blogs={blogs} />
-      </section>
+    <section id="blogs-container" class="page-section" aria-labelledby="writing-heading">
+      <h1 id="writing-heading" class="page-heading">Writing</h1>
+      <p class="body-copy">Writing about engineering, learning, and ideas.</p>
+      <BlogList blogs={blogs} />
+    </section>
   </PageShell>
 </BaseLayout>

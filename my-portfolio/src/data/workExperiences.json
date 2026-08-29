@@ -6,7 +6,16 @@
     "shortDescription": "Own and develop end-to-end features for an agricultural supply-chain platform. Work across data ingestion, financial workflows, analytics, authentication, data-heavy interfaces, and integrations.",
     "started": "March 2024",
     "ended": "Present",
-    "techStackAndTools": ["Django", "React", "Material UI", "Docker", "Celery", "Redis", "AWS", "PostgreSQL"]
+    "techStackAndTools": [
+      "Django",
+      "React",
+      "Material UI",
+      "Docker",
+      "Celery",
+      "Redis",
+      "AWS",
+      "PostgreSQL"
+    ]
   },
   {
     "roles": ["Software Development Engineer 2"],
@@ -15,7 +24,16 @@
     "shortDescription": "Built Python and AWS solutions, led technical work, mentored junior developers, reviewed code, wrote technical documentation, and delivered reusable React and GraphQL features.",
     "started": "August 2022",
     "ended": "March 2024",
-    "techStackAndTools": ["Python", "React", "Django", "GraphQL", "AWS Lambda", "AWS S3", "Pytest", "Jest"]
+    "techStackAndTools": [
+      "Python",
+      "React",
+      "Django",
+      "GraphQL",
+      "AWS Lambda",
+      "AWS S3",
+      "Pytest",
+      "Jest"
+    ]
   },
   {
     "roles": ["Software Development Engineer 1"],

@@ -12,26 +12,32 @@ const socials = [
   { url: 'https://peerlist.io/amanpandya828', icon: peerlistIcon, altText: 'Peerlist logo' },
   { url: 'https://twitter.com/sherlockd828', icon: twitterIcon, altText: 'Twitter logo' },
   { url: 'mailto:ampandya712@gmail.com', icon: gmailIcon, altText: 'Gmail logo' },
-  { url: 'https://calendly.com/amanpandya712/30min', icon: calendlyIcon, altText: 'Calendly representation' },
+  {
+    url: 'https://calendly.com/amanpandya712/30min',
+    icon: calendlyIcon,
+    altText: 'Calendly representation',
+  },
 ]
 ---
 
-<footer class="border-t border-[var(--color-secondary)] bg-[var(--color-secondary)] px-4 py-3 text-center sm:px-8 lg:px-12">
-  <div class="mx-auto flex max-w-6xl flex-col items-center gap-2 text-sm font-bold text-[var(--color-text)]">
-    <ul class="flex flex-row justify-center gap-2">
-      {socials.map((social) => (
-        <li>
-          <a
-            href={social.url}
-            aria-label={social.altText}
-            target={social.url.startsWith('http') ? '_blank' : undefined}
-            rel={social.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-            class="inline-flex size-11 items-center justify-center no-underline"
-          >
-            <img class="size-5" src={social.icon} alt={social.altText} />
-          </a>
-        </li>
-      ))}
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <ul class="social-list">
+      {
+        socials.map((social) => (
+          <li>
+            <a
+              href={social.url}
+              aria-label={social.altText}
+              target={social.url.startsWith('http') ? '_blank' : undefined}
+              rel={social.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+              class="social-link"
+            >
+              <img class="social-icon" src={social.icon} alt={social.altText} />
+            </a>
+          </li>
+        ))
+      }
     </ul>
     <div>&copy; {new Date().getFullYear()} Aman Pandya. Made with fun.</div>
   </div>

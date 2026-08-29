@@ -2,11 +2,13 @@
 const { groups } = Astro.props
 ---
 
-<div class="grid gap-5 sm:grid-cols-2">
-  {groups.map(([group, tools]) => (
-    <div>
-      <h3 class="font-semibold">{group}</h3>
-      <p class="mt-1 body-copy">{tools}</p>
-    </div>
-  ))}
+<div class="skills-grid">
+  {
+    groups.map(([group, tools]) => (
+      <div>
+        <h3 class="skill-group__title">{group}</h3>
+        <p class="skill-group__tools body-copy">{tools}</p>
+      </div>
+    ))
+  }
 </div>

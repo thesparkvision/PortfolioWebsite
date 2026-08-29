@@ -3,10 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import PageShell from '../layouts/PageShell.astro'
 ---
 
-<BaseLayout title="Page not found | Aman Pandya" description="The requested page could not be found.">
-  <PageShell mainClass="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-16 sm:px-8 lg:px-12">
-      <h1 class="page-heading mb-4">Page not found</h1>
-      <p class="body-copy mb-6">The page you requested does not exist.</p>
-      <a class="content-link focus-ring" href="/">Return home</a>
+<BaseLayout
+  title="Page not found | Aman Pandya"
+  description="The requested page could not be found."
+>
+  <PageShell mainClass="site-main site-main--error">
+    <h1 class="page-heading">Page not found</h1>
+    <p class="body-copy">The page you requested does not exist.</p>
+    <a class="content-link focus-ring" href="/">Return home</a>
   </PageShell>
 </BaseLayout>
