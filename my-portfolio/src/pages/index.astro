@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import projects from '../data/projects.json'
+import { resumeURL } from '../site.js'
+
+const featuredProjects = projects.filter((project) => project.showInHomePage)
+---
+
+<BaseLayout title="Aman Pandya | Home" description="Portfolio of Aman Pandya">
+  <div class="flex min-h-screen flex-col bg-[var(--color-background)]">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-[var(--color-primary)] focus:px-4 focus:py-2 focus:text-white">Skip to main content</a>
+    <Header />
+    <main id="main-content" class="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-4 py-4 pb-10! sm:px-8 lg:px-12">
+      <section id="intro" class="grid gap-8 py-8 md:grid-cols-[minmax(0,1.35fr)_minmax(15rem,0.65fr)] md:items-end md:gap-12 md:py-12">
+        <div>
+          <h1 class="max-w-3xl font-bold text-4xl md:text-6xl">Full-stack software engineer</h1>
+          <p class="mt-6 max-w-2xl text-lg leading-8">I'm a Software Development Engineer 2 at <a class="content-link" href="https://agrichain.com/">AgriChain</a>, building reliable, data-heavy software with Python, Django, React, and AWS.</p>
+        </div>
+        <div class="md:border-l md:pl-8">
+          <a href={resumeURL} id="view-resume-btn" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 rounded-lg border border-[var(--color-primary)] bg-[var(--color-primary)] px-6 py-3 text-lg text-white no-underline">View resume <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      {featuredProjects.length > 0 && (
+        <section id="selected-work" aria-labelledby="selected-work-heading">
+          <h2 id="selected-work-heading" class="mb-4 font-bold text-xl md:text-2xl">Featured project</h2>
+          <ul class="content-list">
+            {featuredProjects.map((project) => (
+              <li class="grid gap-2 py-6 md:grid-cols-[minmax(12rem,0.35fr)_minmax(0,1fr)] md:gap-8">
+                <div class="flex flex-col items-start">
+                  <span class="font-semibold text-lg">{project.title}</span>
+                  <a class="content-link mt-2" href={project.githubLink} target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span><span class="sr-only">: {project.title}</span></a>
+                </div>
+                <p class="body-copy">{project.description}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

@@ -1,0 +1,54 @@
+---
+import '../index.css'
+
+const {
+  title = 'Aman Pandya',
+  description = 'Portfolio of Aman Pandya',
+} = Astro.props
+
+const siteUrl = Astro.site ?? new URL('https://www.amanpandya.com')
+const canonical = new URL(Astro.url.pathname, siteUrl)
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Aman Pandya',
+  jobTitle: 'Software Development Engineer 2',
+  url: siteUrl.toString(),
+  worksFor: {
+    '@type': 'Organization',
+    name: 'AgriChain',
+    url: 'https://agrichain.com/',
+  },
+  sameAs: [
+    'https://github.com/thesparkvision',
+    'https://peerlist.io/amanpandya828',
+    'https://twitter.com/sherlockd828',
+  ],
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="author" content="Aman Pandya" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Aman Pandya" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+    <link rel="icon" href="/assets/sailboat.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SN+Pro:wght@400;500;600;700&display=swap" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,45 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/projects/', label: 'Projects' },
+  { href: '/blogs/', label: 'Writing' },
+]
+
+const currentPath = Astro.url.pathname
+---
+
+<header class="sticky top-0 z-40 w-full bg-[var(--color-background)] px-4 pb-3 pt-5 sm:px-8 lg:px-12">
+  <div class="mx-auto flex max-w-6xl flex-col gap-2 border-b border-[var(--color-text)]/25 pb-3 md:flex-row md:items-center md:justify-between">
+    <a href="/" class="text-2xl font-extrabold no-underline focus-ring md:text-3xl">Aman Pandya</a>
+    <div class="flex items-center justify-center gap-4">
+      <nav aria-label="Primary navigation">
+        <ul class="flex items-center justify-center gap-4">
+          {links.map((link) => (
+            <li><a href={link.href} class:list={["text-base no-underline focus-ring md:text-lg", currentPath === link.href && "text-[var(--color-link)]"]} aria-current={currentPath === link.href ? 'page' : undefined}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+      <button id="theme-toggle" type="button" class="js-only relative inline-flex size-11 items-center justify-center rounded-full bg-transparent focus-ring" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+        <span aria-hidden="true" class="text-xl">☾</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  document.documentElement.classList.add('js')
+  const themeToggle = document.querySelector('#theme-toggle')
+  const savedTheme = localStorage.getItem('theme')
+  if (savedTheme) document.documentElement.dataset.theme = savedTheme
+  themeToggle?.addEventListener('click', () => {
+    const isDark = document.documentElement.dataset.theme !== 'dark'
+    const theme = isDark ? 'dark' : 'light'
+    document.documentElement.dataset.theme = theme
+    localStorage.setItem('theme', theme)
+    themeToggle.setAttribute('aria-pressed', String(isDark))
+    themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode')
+    themeToggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode')
+    themeToggle.firstElementChild.textContent = isDark ? '☀' : '☾'
+  })
+</script>

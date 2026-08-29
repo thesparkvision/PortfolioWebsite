@@ -7,6 +7,18 @@
   --color-secondary: #e7e7e2;
   --color-accent: #d94b3d;
   --color-link: #b53a2c;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-text: #f4f1ea;
+    --color-background: #20211f;
+    --color-primary: #d85d4a;
+    --color-secondary: #30332f;
+    --color-accent: #ffaa99;
+    --color-link: #ff9a8a;
+  }
 }
 
 [data-theme="dark"] {
@@ -63,6 +75,17 @@ html.js .js-only {
   p {
     max-width: 65ch;
   }
+
+}
+
+.content-link {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.content-link:hover {
+  color: var(--color-accent);
 }
 
 .page-heading {
@@ -91,25 +114,7 @@ html.js .js-only {
   }
 }
 
-@keyframes wand-spark {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-
-  45% {
-    transform: rotate(-16deg) scale(1.12);
-  }
-
-  100% {
-    transform: rotate(0deg) scale(1);
-  }
-}
-
 @media (prefers-reduced-motion: no-preference) {
-  .wand-toggle-icon {
-    animation: wand-spark 420ms ease-out;
-  }
-
   .theme-toggle-spark {
     animation: theme-sparkle 520ms ease-out both;
   }
@@ -130,17 +135,6 @@ html.js .js-only {
     animation-delay: 160ms;
   }
 
-  .magic-page-spark {
-    animation: magic-page-sparkle 1100ms ease-out both;
-  }
-
-  .magic-page-spark:nth-child(2n) {
-    animation-delay: 80ms;
-  }
-
-  .magic-page-spark:nth-child(3n) {
-    animation-delay: 160ms;
-  }
 }
 
 @keyframes theme-sparkle {
@@ -161,21 +155,4 @@ html.js .js-only {
 
 .theme-toggle-spark {
   opacity: 0;
-}
-
-@keyframes magic-page-sparkle {
-  0% {
-    opacity: 0;
-    transform: scale(0.1) rotate(0deg);
-  }
-
-  25% {
-    opacity: 1;
-    transform: scale(1.25) rotate(30deg);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(0.8) rotate(90deg);
-  }
 }
