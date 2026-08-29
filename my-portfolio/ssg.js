@@ -22,7 +22,7 @@ async function readManifest() {
     const content = await fs.readFile(manifestPath, 'utf8')
     return JSON.parse(content)
   } catch {
-    throw new Error(`Cannot read manifest at ${manifestPath}. Run "npm run build" first.`)
+    throw new Error(`Cannot read manifest at ${manifestPath}. Run "bun run build" first.`)
   }
 }
 
