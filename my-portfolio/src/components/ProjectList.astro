@@ -1,0 +1,21 @@
+---
+const { projects } = Astro.props
+---
+
+<ul class="content-list">
+  {projects.map((project) => (
+    <li class="grid gap-2 border-b border-[var(--color-text)]/20 py-6 last:border-b-0 md:grid-cols-[minmax(14rem,0.4fr)_minmax(0,1fr)] md:gap-8">
+      <div>
+        <h2 class="font-bold text-lg">{project.title}</h2>
+        {project.githubLink && (
+          <span class="mt-2 block text-sm">
+            <a class="content-link focus-ring" href={project.githubLink} target="_blank" rel="noopener noreferrer">
+              View on GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </span>
+        )}
+      </div>
+      <p class="body-copy">{project.description}</p>
+    </li>
+  ))}
+</ul>

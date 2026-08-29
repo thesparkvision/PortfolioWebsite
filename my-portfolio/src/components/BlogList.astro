@@ -1,0 +1,27 @@
+---
+const { blogs } = Astro.props
+
+const formatDate = (dateString) => new Intl.DateTimeFormat('en-US', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'Asia/Kolkata',
+}).format(new Date(dateString))
+---
+
+<ul class="content-list">
+  {blogs.length === 0 && <li><p>No blogs found.</p></li>}
+  {blogs.map((blog) => (
+    <li class="border-b border-[var(--color-text)]/20 py-6 last:border-b-0">
+      <a class="grid gap-2 no-underline md:grid-cols-[minmax(14rem,0.4fr)_minmax(0,1fr)_auto] md:items-start md:gap-8" href={blog.url} target="_blank" rel="noopener noreferrer">
+        <h2 class="content-link font-bold text-lg">{blog.title}</h2>
+        <p class="body-copy">{blog.brief}</p>
+        <div class="flex flex-wrap gap-x-2 text-sm text-[var(--color-text)]/70 md:justify-end">
+          <time datetime={blog.publishedAt}>{formatDate(blog.publishedAt)}</time>
+          <span aria-hidden="true">·</span>
+          <span>{blog.readTimeInMinutes} min read</span>
+        </div>
+      </a>
+    </li>
+  ))}
+</ul>

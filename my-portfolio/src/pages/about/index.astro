@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import Header from '../../components/Header.astro'
-import Footer from '../../components/Footer.astro'
-import ClockIcon from '../../components/ClockIcon.astro'
-import GraduationCapIcon from '../../components/GraduationCapIcon.astro'
+import PageShell from '../../layouts/PageShell.astro'
+import SkillsList from '../../components/SkillsList.astro'
+import WorkHistory from '../../components/WorkHistory.astro'
+import Education from '../../components/Education.astro'
 import workExperiences from '../../data/workExperiences.json'
 
 const skillGroups = [
@@ -13,26 +13,10 @@ const skillGroups = [
   ['Quality and workflow', 'Pytest, Jest, Git'],
 ]
 
-const groupedWorkExperiences = workExperiences.reduce((companies, experience) => {
-  const company = companies.find((item) => item.companyName === experience.companyName)
-  if (company) {
-    company.roles.push(experience)
-  } else {
-    companies.push({
-      companyName: experience.companyName,
-      companyUrl: experience.companyUrl,
-      roles: [experience],
-    })
-  }
-  return companies
-}, [])
 ---
 
 <BaseLayout title="About | Aman Pandya" description="About Aman Pandya">
-  <div class="flex min-h-screen flex-col bg-[var(--color-background)]">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-[var(--color-primary)] focus:px-4 focus:py-2 focus:text-white">Skip to main content</a>
-    <Header />
-    <main id="main-content" class="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-4 py-4 pb-10! sm:px-8 lg:px-12">
+  <PageShell>
       <section aria-labelledby="about-heading">
         <h1 id="about-heading" class="page-heading mb-6">About Me</h1>
         <div class="max-w-[65ch]">
@@ -42,57 +26,17 @@ const groupedWorkExperiences = workExperiences.reduce((companies, experience) =>
 
       <section aria-labelledby="skills-heading">
         <h2 id="skills-heading" class="page-heading mb-6">Skills and tools</h2>
-        <div class="grid gap-5 sm:grid-cols-2">
-          {skillGroups.map(([group, tools]) => (
-            <div>
-              <h3 class="font-semibold">{group}</h3>
-              <p class="mt-1 body-copy">{tools}</p>
-            </div>
-          ))}
-        </div>
+        <SkillsList groups={skillGroups} />
       </section>
 
       <section aria-labelledby="work-heading">
         <h2 id="work-heading" class="page-heading mb-6">Work</h2>
-        <div class="ml-2 border-l border-[var(--color-text)]/25 pl-8 md:ml-4">
-          {groupedWorkExperiences.map((company) => {
-            const isCurrent = company.roles.some((role) => role.ended === 'Present')
-            return (
-              <div class="relative pb-10 last:pb-0">
-                <span aria-hidden="true" class:list={["absolute -left-[37px] top-1 rounded-full", isCurrent ? "size-3 bg-[var(--color-accent)] ring-4 ring-[var(--color-background)]" : "size-2.5 border-2 border-[var(--color-accent)] bg-[var(--color-background)]"]}></span>
-                <div class="mb-4 font-semibold"><a class="content-link focus-ring" href={company.companyUrl} target="_blank" rel="noopener noreferrer">{company.companyName}</a></div>
-                <div class="ml-2 pl-8">
-                  {company.roles.map((role, index) => (
-                    <div class="border-b border-[var(--color-text)]/15 pb-8 pt-8 first:pt-0 last:border-b-0">
-                      <div class="mb-3 flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
-                        <div class="font-semibold">{role.roles[0]}</div>
-                        <div class="text-sm italic md:text-right"><ClockIcon /> {role.started} - {role.ended}</div>
-                      </div>
-                      <p class="mb-3 body-copy text-base">{role.shortDescription}</p>
-                      <div>
-                        <div class="font-medium underline underline-offset-2">Tech Stack &amp; Tools</div>
-                        <div>{role.techStackAndTools.join(', ')}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )
-          })}
-        </div>
+        <WorkHistory experiences={workExperiences} />
       </section>
 
       <section aria-labelledby="education-heading">
         <h2 id="education-heading" class="page-heading mb-6">Education</h2>
-        <div>
-          <div class="mb-1"><a class="content-link focus-ring" href="https://mitujjain.ac.in/" target="_blank" rel="noopener noreferrer">Mahakal Institute Of Technology, Ujjain</a></div>
-          <div class="flex flex-col font-semibold italic md:flex-row lg:justify-between">
-            <div><GraduationCapIcon /> B.Tech. in Computer Science and Engineering</div>
-            <div><ClockIcon /> July 2017 - July 2021</div>
-          </div>
-        </div>
+        <Education />
       </section>
-    </main>
-    <Footer />
-  </div>
+  </PageShell>
 </BaseLayout>

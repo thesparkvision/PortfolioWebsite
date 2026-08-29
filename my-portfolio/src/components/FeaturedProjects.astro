@@ -1,0 +1,20 @@
+---
+const { projects } = Astro.props
+---
+
+{projects.length > 0 && (
+  <section id="selected-work" aria-labelledby="selected-work-heading">
+    <h2 id="selected-work-heading" class="mb-4 font-bold text-xl md:text-2xl">Featured project</h2>
+    <ul class="content-list">
+      {projects.map((project) => (
+        <li class="grid gap-2 py-6 md:grid-cols-[minmax(12rem,0.35fr)_minmax(0,1fr)] md:gap-8">
+          <div class="flex flex-col items-start">
+            <span class="font-semibold text-lg">{project.title}</span>
+            <a class="content-link mt-2" href={project.githubLink} target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span><span class="sr-only">: {project.title}</span></a>
+          </div>
+          <p class="body-copy">{project.description}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

@@ -1,37 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import Header from '../../components/Header.astro'
-import Footer from '../../components/Footer.astro'
+import PageShell from '../../layouts/PageShell.astro'
+import ProjectList from '../../components/ProjectList.astro'
 import projects from '../../data/projects.json'
 ---
 
 <BaseLayout title="Projects | Aman Pandya" description="Projects by Aman Pandya">
-  <div class="flex min-h-screen flex-col bg-[var(--color-background)]">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-[var(--color-primary)] focus:px-4 focus:py-2 focus:text-white">Skip to main content</a>
-    <Header />
-    <main id="main-content" class="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-4 py-4 pb-10! sm:px-8 lg:px-12">
+  <PageShell>
       <section aria-labelledby="projects-heading">
         <h1 id="projects-heading" class="page-heading mb-2">Projects</h1>
         <p class="mb-6 body-copy">A selection of things I have built.</p>
-        <ul class="content-list">
-          {projects.map((project) => (
-            <li class="grid gap-2 border-b border-[var(--color-text)]/20 py-6 last:border-b-0 md:grid-cols-[minmax(14rem,0.4fr)_minmax(0,1fr)] md:gap-8">
-              <div>
-                <h2 class="font-bold text-lg">{project.title}</h2>
-                {project.githubLink && (
-                  <span class="mt-2 block text-sm">
-                    <a class="content-link focus-ring" href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                      View on GitHub <span aria-hidden="true">↗</span>
-                    </a>
-                  </span>
-                )}
-              </div>
-              <p class="body-copy">{project.description}</p>
-            </li>
-          ))}
-        </ul>
+        <ProjectList projects={projects} />
       </section>
-    </main>
-    <Footer />
-  </div>
+  </PageShell>
 </BaseLayout>

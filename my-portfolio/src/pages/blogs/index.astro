@@ -1,43 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import Header from '../../components/Header.astro'
-import Footer from '../../components/Footer.astro'
+import PageShell from '../../layouts/PageShell.astro'
+import BlogList from '../../components/BlogList.astro'
 import blogs from '../../data/blogs.json'
-
-const formatDate = (dateString) => new Intl.DateTimeFormat('en-US', {
-  day: 'numeric',
-  month: 'short',
-  year: 'numeric',
-  timeZone: 'Asia/Kolkata',
-}).format(new Date(dateString))
 ---
 
 <BaseLayout title="Blogs | Aman Pandya" description="Blog posts by Aman Pandya">
-  <div class="flex min-h-screen flex-col bg-[var(--color-background)]">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-[var(--color-primary)] focus:px-4 focus:py-2 focus:text-white">Skip to main content</a>
-    <Header />
-    <main id="main-content" class="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-4 py-4 pb-10! sm:px-8 lg:px-12">
+  <PageShell>
       <section id="blogs-container" aria-labelledby="writing-heading">
         <h1 id="writing-heading" class="page-heading mb-2">Writing</h1>
         <p class="mb-6 body-copy">Writing about engineering, learning, and ideas.</p>
-        <ul class="content-list">
-          {blogs.length === 0 && <li><p>No blogs found.</p></li>}
-          {blogs.map((blog) => (
-            <li class="border-b border-[var(--color-text)]/20 py-6 last:border-b-0">
-              <a class="grid gap-2 no-underline md:grid-cols-[minmax(14rem,0.4fr)_minmax(0,1fr)_auto] md:items-start md:gap-8" href={blog.url} target="_blank" rel="noopener noreferrer">
-                <h2 class="content-link font-bold text-lg">{blog.title}</h2>
-                <p class="body-copy">{blog.brief}</p>
-                <div class="flex flex-wrap gap-x-2 text-sm text-[var(--color-text)]/70 md:justify-end">
-                  <time datetime={blog.publishedAt}>{formatDate(blog.publishedAt)}</time>
-                  <span aria-hidden="true">·</span>
-                  <span>{blog.readTimeInMinutes} min read</span>
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <BlogList blogs={blogs} />
       </section>
-    </main>
-    <Footer />
-  </div>
+  </PageShell>
 </BaseLayout>
