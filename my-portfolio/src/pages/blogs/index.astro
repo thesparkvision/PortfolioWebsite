@@ -2,7 +2,17 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import PageShell from '../../layouts/PageShell.astro'
 import BlogList from '../../components/BlogList.astro'
-import blogs from '../../data/blogs.json'
+import { getCollection } from 'astro:content'
+
+const nativePosts = await getCollection('blog')
+const allBlogs = nativePosts.map((post) => ({
+  title: post.data.title,
+  brief: post.data.description,
+  url: `/blogs/${post.data.slug ?? post.id}/`,
+  publishedAt: post.data.publishedAt.toISOString(),
+  readTimeInMinutes: post.data.readTimeInMinutes,
+}))
+allBlogs.sort((first, second) => new Date(second.publishedAt) - new Date(first.publishedAt))
 ---
 
 <BaseLayout title="Blogs | Aman Pandya" description="Blog posts by Aman Pandya">
@@ -10,7 +20,7 @@ import blogs from '../../data/blogs.json'
     <section id="blogs-container" class="page-section" aria-labelledby="writing-heading">
       <h1 id="writing-heading" class="page-heading">Writing</h1>
       <p class="body-copy">Writing about engineering, learning, and ideas.</p>
-      <BlogList blogs={blogs} />
+      <BlogList blogs={allBlogs} />
     </section>
   </PageShell>
 </BaseLayout>

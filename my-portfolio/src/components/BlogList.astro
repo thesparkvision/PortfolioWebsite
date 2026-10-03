@@ -21,13 +21,17 @@ const formatDate = (dateString) =>
   {
     blogs.map((blog) => (
       <li class="blog-row">
-        <a class="blog-row__link" href={blog.url} target="_blank" rel="noopener noreferrer">
+        <a class="blog-row__link" href={blog.url}>
           <h2 class="blog-title content-link">{blog.title}</h2>
           <p class="body-copy">{blog.brief}</p>
           <div class="blog-row__meta">
             <time datetime={blog.publishedAt}>{formatDate(blog.publishedAt)}</time>
-            <span aria-hidden="true">·</span>
-            <span>{blog.readTimeInMinutes} min read</span>
+            {blog.readTimeInMinutes && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span>{blog.readTimeInMinutes} min read</span>
+              </>
+            )}
           </div>
         </a>
       </li>
