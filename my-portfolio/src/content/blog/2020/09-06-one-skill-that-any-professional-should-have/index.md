@@ -77,6 +77,6 @@ I remember reading a book called "Give and Take" that you need not be a person w
   </div>
 </section>
 
-If you want to know how to use LinkedIn properly, you can refer this video by Love Babbar sir : https://youtu.be/MD7yXwBwCV0
+If you want to know how to use LinkedIn properly, you can refer this video by Love Babbar : https://youtu.be/MD7yXwBwCV0
 
 _Thanks for being a supportive reader. I value your constructive feedback to improve myself to bring forth more cool content for you. Till then, keep hustling!_

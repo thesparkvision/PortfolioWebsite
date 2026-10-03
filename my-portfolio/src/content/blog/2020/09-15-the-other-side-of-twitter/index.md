@@ -44,7 +44,7 @@ https://bloggingfordevs.com/
 
 This is not it. Recently, I landed up with Hashnode Technical Writing Bootcamp opportunity also from here. So yeah, it is helping me improve my skills- even my blogging skills. I got to learn what is trending, how other developers are doing, what they are learning. I get lots of tips on how to improve myself from Twitter everyday.
 
-I don't use it to get news updates but it is a learning and networking platform for me. I got to know many amazing developers like Catalin Pit sir, Danny Thompson sir, Quincy Larson sir. Those kind of people whom I couldn't communicate with earlier now I can. It has been very advantageous for me since a month I have been using it productively. I hardly use it for 15-20 minutes per day but it give me good return.
+I don't use it to get news updates but it is a learning and networking platform for me. I got to know many amazing developers like Catalin Pit, Danny Thompson, Quincy Larson. Those kind of people whom I couldn't communicate with earlier now I can. It has been very advantageous for me since a month I have been using it productively. I hardly use it for 15-20 minutes per day but it give me good return.
 
 You can also try to follow some developers and some hashtags like #developers #machinelearning and ultimately you will meet very amazing people and your outlook towards twitter will change. It has a very cool dev community indeed.
 

@@ -5,16 +5,13 @@ function isMeaningfulContent(child) {
 function findCaptionedImage(paragraph) {
   const meaningfulChildren = paragraph.children.filter(isMeaningfulContent)
 
-  if (meaningfulChildren.length !== 1)
-    return null
+  if (meaningfulChildren.length !== 1) return null
 
   const image = meaningfulChildren[0]
-  if (image.type !== 'element' || image.tagName !== 'img')
-    return null
+  if (image.type !== 'element' || image.tagName !== 'img') return null
 
   const caption = image.properties?.title
-  if (typeof caption !== 'string' || caption.trim() === '')
-    return null
+  if (typeof caption !== 'string' || caption.trim() === '') return null
 
   return { image, caption: caption.trim() }
 }
@@ -44,8 +41,7 @@ const figureCaptionPlugin = {
     filter: ['p'],
     visit(paragraph, context) {
       const captionedImage = findCaptionedImage(paragraph)
-      if (!captionedImage)
-        return
+      if (!captionedImage) return
 
       context.replaceNode(paragraph, createFigure(captionedImage.image, captionedImage.caption))
     },

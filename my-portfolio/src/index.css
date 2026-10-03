@@ -592,6 +592,11 @@ html.js .js-only {
   line-height: 1;
 }
 
+.blog-prose p:has(img) {
+  max-width: var(--blog-reading-width);
+  margin-block: 1.5rem 2rem;
+}
+
 .blog-prose blockquote p:last-child:not(:first-child) {
   margin-block-end: 0;
   font-size: 0.875rem;
@@ -613,11 +618,6 @@ html.js .js-only {
 .blog-prose a:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
-}
-
-.blog-prose p:has(img) {
-  max-width: var(--blog-reading-width);
-  margin-block: 1.5rem 2rem;
 }
 
 .blog-prose .blog-figure {
@@ -692,7 +692,7 @@ html.js .js-only {
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
 }
 
-@media (max-width: 639px) {
+@media (width <= 639px) {
   .blog-article__header .page-heading {
     font-size: clamp(2.25rem, 11vw, 3rem);
   }
